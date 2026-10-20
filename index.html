@@ -3,32 +3,414 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Termékkatalógus</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <title>GAOX - Földgömbök & Térképek</title>
+  <!-- Tailwind CSS CDN a modern megjelenéshez -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome ikonok -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Inter és Playfair Display / Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
-  <header class="header">
-    <div class="container">
-      <h1>Termékkatalógus</h1>
-      <div class="controls">
-        <input type="text" id="searchInput" placeholder="Keresés termékek között..." onkeyup="filterProducts()">
-        <select id="categoryFilter" onchange="filterProducts()">
-          <option value="all">Összes kategória</option>
-          <option value="Térképek">Térképek</option>
-          <option value="Glóbuszok">Glóbuszok</option>
-          <option value="Kiegészítők">Kiegészítők</option>
-        </select>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#2d7a27', // A képen látható zöld szín
+              darkgreen: '#1e521a',
+              lightgreen: '#eaf4e8',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .serif-heading {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col">
+
+  <!-- Felső fejléc: Ikonok & Logó -->
+  <header class="border-b border-gray-100 sticky top-0 bg-white/95 backdrop-blur-md z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Kereső gomb / Mező -->
+        <div class="flex items-center w-1/3">
+          <div class="relative w-full max-w-xs">
+            <input 
+              type="text" 
+              id="searchInput" 
+              placeholder="Keresés termékek között..." 
+              onkeyup="filterProducts()" 
+              class="w-full pl-9 pr-4 py-2 text-sm bg-gray-50 border border-gray-200 rounded-full focus:outline-none focus:border-brand-green focus:bg-white transition-all duration-200"
+            />
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-sm"></i>
+          </div>
+        </div>
+
+        <!-- Középső Zöld Földgömb Logó -->
+        <div class="flex justify-center w-1/3">
+          <a href="#" class="group flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center text-white text-2xl shadow-md group-hover:scale-105 transition-transform duration-200">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+          </a>
+        </div>
+
+        <!-- Jobb oldali ikonok: Fiók & Kosár -->
+        <div class="flex items-center justify-end w-1/3 space-x-5 text-gray-700">
+          <button class="hover:text-brand-green transition-colors" title="Fiókom">
+            <i class="fa-regular fa-user text-xl"></i>
+          </button>
+          <button onclick="toggleCartModal()" class="relative hover:text-brand-green transition-colors" title="Kosár">
+            <i class="fa-solid fa-bag-shopping text-xl"></i>
+            <span id="cartCount" class="absolute -top-2 -right-2 bg-brand-green text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+          </button>
+        </div>
+
       </div>
+
+      <!-- Navigációs Menü -->
+      <nav class="flex justify-center space-x-8 py-3 text-sm font-bold tracking-wide uppercase border-t border-gray-100">
+        <button onclick="filterCategory('all')" class="nav-link text-brand-green border-b-2 border-brand-green pb-1 transition-colors" data-cat="all">Kezdőlap</button>
+        <button onclick="filterCategory('Zászlók')" class="nav-link text-gray-700 hover:text-brand-green pb-1 transition-colors" data-cat="Zászlók">Zászlók</button>
+        <button onclick="filterCategory('Térképek')" class="nav-link text-gray-700 hover:text-brand-green pb-1 transition-colors" data-cat="Térképek">Térképek</button>
+        <button onclick="filterCategory('Földgömbök')" class="nav-link text-gray-700 hover:text-brand-green pb-1 transition-colors" data-cat="Földgömbök">Földgömbök</button>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <div id="productGrid" class="product-grid">
+  <!-- Fekete Értesítési Sáv / Promóció -->
+  <div class="bg-black text-white text-center py-2.5 px-4 text-xs sm:text-sm font-black tracking-widest uppercase shadow-inner">
+    MEGNYITOTTUNK! NYITÁSI KEDVEZMÉNY MINDEN VÁSÁRLÁS UTÁN! KUPONKÓD: GAOX10
+  </div>
+
+  <!-- Fő tartalom -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
+    
+    <!-- Kategória szűrő állapot & Keresési statisztika -->
+    <div class="flex justify-between items-center mb-6">
+      <h2 id="currentCategoryTitle" class="text-xl font-bold text-gray-800 uppercase tracking-wider">Kiemelt Termékek</h2>
+      <span id="productCount" class="text-sm text-gray-500 font-semibold">4 termék</span>
+    </div>
+
+    <!-- Termékek Grid (Rács) -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       <!-- A JavaScript dinamikusan ide tölti be a termékeket -->
     </div>
+
+    <!-- Kategóriák Szekció -->
+    <section class="mt-20">
+      <h2 class="serif-heading text-4xl sm:text-5xl font-extrabold text-black mb-8 tracking-tight">Kategóriák</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Zászlók Kártya -->
+        <div onclick="filterCategory('Zászlók')" class="group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-md border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Zászlók" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+            <div>
+              <h3 class="text-white text-2xl font-bold tracking-wide">Zászlók</h3>
+              <p class="text-gray-300 text-xs mt-1">Nemzeti és dekorációs zászlók</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Térképek Kártya -->
+        <div onclick="filterCategory('Térképek')" class="group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-md border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80" alt="Térképek" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+            <div>
+              <h3 class="text-white text-2xl font-bold tracking-wide">Térképek</h3>
+              <p class="text-gray-300 text-xs mt-1">Fali és kaparós térképek</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Földgömbök Kártya -->
+        <div onclick="filterCategory('Földgömbök')" class="group relative h-64 rounded-2xl overflow-hidden cursor-pointer shadow-md border border-gray-100">
+          <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=600&q=80" alt="Földgömbök" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+            <div>
+              <h3 class="text-white text-2xl font-bold tracking-wide">Földgömbök</h3>
+              <p class="text-gray-300 text-xs mt-1">Klasszikus és modern glóbuszok</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <script src="script.js"></script>
+  <!-- Lábléc (Footer) -->
+  <footer class="bg-gray-900 text-white mt-20 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-8 h-8 rounded-full bg-brand-green flex items-center justify-center text-white">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+            <span class="font-extrabold text-xl tracking-wider">GAOX</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Minőségi földgömbök, zászlók és térképek széles választéka az otthoni és irodai dekorációhoz.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-base mb-4 uppercase tracking-wider text-brand-green">Információk</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Nyitási kedvezmény</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Szállítási feltételek</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Adatvédelmi nyilatkozat</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Kapcsolat</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-base mb-4 uppercase tracking-wider text-brand-green">Hírlevél</h4>
+          <p class="text-gray-400 text-sm mb-3">Iratkozz fel, hogy ne maradj le az akciókról!</p>
+          <div class="flex">
+            <input type="email" placeholder="E-mail címed..." class="px-4 py-2 bg-gray-800 text-white rounded-l-lg text-sm w-full focus:outline-none border border-gray-700">
+            <button class="bg-brand-green px-4 py-2 text-sm font-bold rounded-r-lg hover:bg-brand-darkgreen transition-colors">OK</button>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-10 pt-6 text-center text-xs text-gray-500">
+        &copy; 2026 GAOX Store. Minden jog fenntartva.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Kosár Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex justify-end hidden transition-opacity">
+    <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between p-6 overflow-y-auto">
+      <div>
+        <div class="flex justify-between items-center pb-4 border-b border-gray-200">
+          <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+            <i class="fa-solid fa-bag-shopping text-brand-green"></i> Bevásárlókosár
+          </h3>
+          <button onclick="toggleCartModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+        </div>
+        <div id="cartItems" class="py-4 space-y-4">
+          <!-- Kosár elemek -->
+        </div>
+      </div>
+
+      <div class="border-t border-gray-200 pt-4">
+        <div class="flex justify-between font-bold text-lg mb-4">
+          <span>Összesen:</span>
+          <span id="cartTotal" class="text-brand-green">0 Ft</span>
+        </div>
+        <button onclick="alert('Köszönjük a rendelést! KUPONKÓD GAOX10 érvényesítve.')" class="w-full bg-brand-green hover:bg-brand-darkgreen text-white py-3 rounded-xl font-bold transition-colors shadow-lg">
+          Pénztárhoz lépés
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Logika -->
+  <script>
+    // Termék adatok a feltöltött képen látható elemekkel
+    const products = [
+      {
+        id: 1,
+        title: "Magyar zászló 14x21 cm",
+        category: "Zászlók",
+        price: 600,
+        formattedPrice: "600 Ft",
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Flag_of_Hungary.svg"
+      },
+      {
+        id: 2,
+        title: "360° Földgömb (kék)",
+        category: "Földgömbök",
+        price: 5000,
+        formattedPrice: "5.000 Ft",
+        image: "https://images.unsplash.com/photo-1614531341773-3bff8b7ce3fc?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        title: "360° Földgömb (fekete)",
+        category: "Földgömbök",
+        price: 5000,
+        formattedPrice: "5.000 Ft",
+        image: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        title: "Antik stílusú földgömb",
+        category: "Földgömbök",
+        price: 12000,
+        formattedPrice: "12.000 Ft",
+        image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    let currentCategory = 'all';
+    let cart = [];
+
+    // Termékek kirajzolása a képernyőre
+    function renderProducts(items) {
+      const grid = document.getElementById('productGrid');
+      const countLabel = document.getElementById('productCount');
+      grid.innerHTML = '';
+
+      countLabel.textContent = `${items.length} termék`;
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12 text-gray-400">
+            <i class="fa-solid fa-box-open text-5xl mb-3"></i>
+            <p class="text-base font-semibold">Sajnos nem található a keresésnek megfelelő termék.</p>
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(product => {
+        const card = document.createElement('div');
+        card.className = "group flex flex-col justify-between p-4 rounded-2xl bg-white border border-transparent hover:border-gray-100 hover:shadow-xl transition-all duration-300";
+        card.innerHTML = `
+          <div>
+            <!-- Termék Kép Container -->
+            <div class="w-full h-64 flex items-center justify-center p-2 mb-4 bg-gray-50/50 rounded-xl overflow-hidden group-hover:bg-gray-50 transition-colors">
+              <img 
+                src="${product.image}" 
+                alt="${product.title}" 
+                class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <!-- Cím a képen látható zöld, félkövér stílussal -->
+            <h3 class="font-extrabold text-brand-green text-base mb-1 tracking-tight group-hover:underline cursor-pointer">
+              ${product.title}
+            </h3>
+            <!-- Ár zöld betűvel -->
+            <p class="text-brand-green font-black text-lg mb-4">
+              ${product.formattedPrice}
+            </p>
+          </div>
+
+          <!-- Kosárba gomb -->
+          <button 
+            onclick="addToCart(${product.id})"
+            class="w-full py-2.5 bg-gray-100 hover:bg-brand-green hover:text-white text-gray-800 text-xs font-bold rounded-lg uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cart-plus"></i> Kosárba
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Kategória szűrés
+    function filterCategory(category) {
+      currentCategory = category;
+      
+      // Navigációs gombok kijelölése
+      document.querySelectorAll('.nav-link').forEach(btn => {
+        if (btn.dataset.cat === category) {
+          btn.className = "nav-link text-brand-green border-b-2 border-brand-green pb-1 font-extrabold transition-colors";
+        } else {
+          btn.className = "nav-link text-gray-700 hover:text-brand-green pb-1 font-bold transition-colors";
+        }
+      });
+
+      // Cím frissítése
+      const titleElement = document.getElementById('currentCategoryTitle');
+      titleElement.textContent = category === 'all' ? 'Kiemelt Termékek' : category;
+
+      filterProducts();
+    }
+
+    // Keresés és szűrés kombinálva
+    function filterProducts() {
+      const searchVal = document.getElementById('searchInput').value.toLowerCase();
+
+      const filtered = products.filter(product => {
+        const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
+        const matchesSearch = product.title.toLowerCase().includes(searchVal);
+        return matchesCategory && matchesSearch;
+      });
+
+      renderProducts(filtered);
+    }
+
+    // Kosár kezelés
+    function addToCart(id) {
+      const item = products.find(p => p.id === id);
+      if (item) {
+        cart.push(item);
+        updateCartUI();
+        toggleCartModal(true);
+      }
+    }
+
+    function updateCartUI() {
+      document.getElementById('cartCount').textContent = cart.length;
+      
+      const cartItems = document.getElementById('cartItems');
+      cartItems.innerHTML = '';
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p class="text-center text-gray-400 py-8">A kosarad még üres.</p>';
+        document.getElementById('cartTotal').textContent = '0 Ft';
+        return;
+      }
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = "flex justify-between items-center bg-gray-50 p-3 rounded-lg";
+        div.innerHTML = `
+          <div class="flex items-center gap-3">
+            <img src="${item.image}" class="w-10 h-10 object-contain">
+            <div>
+              <p class="text-xs font-bold text-gray-800">${item.title}</p>
+              <p class="text-xs text-brand-green font-bold">${item.formattedPrice}</p>
+            </div>
+          </div>
+          <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600 text-xs font-bold">Törlés</button>
+        `;
+        cartItems.appendChild(div);
+      });
+
+      document.getElementById('cartTotal').textContent = total.toLocaleString('hu-HU') + ' Ft';
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function toggleCartModal(open) {
+      const modal = document.getElementById('cartModal');
+      if (open === true) {
+        modal.classList.remove('hidden');
+      } else if (open === false) {
+        modal.classList.add('hidden');
+      } else {
+        modal.classList.toggle('hidden');
+      }
+    }
+
+    // Kezdő inicializálás
+    window.onload = function() {
+      renderProducts(products);
+    };
+  </script>
 </body>
 </html>
