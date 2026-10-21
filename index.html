@@ -60,14 +60,15 @@
       fill: #666;
     }
     .logo {
-      <img src= "https://github.com/jszatmari15-web/gaoxmain/blob/545d3d64227297b2332e4c4d6814b9d4e889c93a/output-smallpngtools%20(1).png">
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .logo svg {
-      width: 48px;
-      height: 48px;
+    .logo img {
+      display: block;
+      width: 120px;
+      height: auto;
+      object-fit: contain;
     }
     .header-icons {
       display: flex;
@@ -198,15 +199,12 @@
       </div>
 
       <div class="logo">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" fill="#588B42" />
-          <path d="M 30 50 Q 40 30 60 35 T 70 65 Q 50 80 30 50 Z" fill="#7CBD58" />
-        </svg>
+        <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/545d3d64227297b2332e4c4d6814b9d4e889c93a/output-smallpngtools%20(1).png" alt="GAOX logo">
       </div>
 
       <div class="header-icons">
         <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M18 6h-2.58C15.09 3.69 13.68 2 12 2S8.91 3.69 8.58 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.03 0 1.9.82 2.15 2H9.85c.25-1.18 1.12-2 2.15-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M18 6h-2.58C15.09 3.69 13.68 2 12 2S8.91 3.69 8.58 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.03 0 1.9.82 2.15 2H9.85c.25-1.18 1.12-2 2.15-2zm6 16H6V8h12v12zm-6-2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
       </div>
     </div>
   </header>
@@ -255,10 +253,10 @@
 
     <h2 class="section-title">Kategóriák</h2>
     <div class="categories-grid">
-      <div class="category-card" style="background-image: url('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/a00f1c585de0a3da9ec903d1936c81acfd3b0a48/Gemini_Generated_Image_77x6u377x6u377x6.png');" onclick="filterCategory('Zászló')">
+      <div class="category-card" style="background-image: url('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/a00f1c585de0a3da9ec903d1936c81acfd3b0a48/Gemini_Generated_Image_77x6u377x6u377x6.png');">
         <div class="category-title">Zászlók</div>
       </div>
-      <div class="category-card" style="background-image: url('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/a00f1c585de0a3da9ec903d1936c81acfd3b0a48/15292286_27030_Magic_360__Globe_Blue%20(1).jpg');" onclick="filterCategory('Földgömb')">
+      <div class="category-card" style="background-image: url('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/a00f1c585de0a3da9ec903d1936c81acfd3b0a48/15292286_27030_Magic_360__Globe_Blue%20(1).jpg');">
         <div class="category-title">Földgömbök</div>
       </div>
     </div>
