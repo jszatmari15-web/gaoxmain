@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Termék részletek</title>
+</head>
+<body>
+  <main id="productDetail"></main>
+
+  <script>
+    const products = {
+      "magyar-zaszlo-14x21-cm": {
+        title: "Magyar zászló 14x21 cm",
+        price: "600 Ft",
+        image: "https://example.com/zaszlo.jpg",
+        description: "Magyar gyártmányú, 14x21 cm-es zászló."
+      }   
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
+    const product = products[productId];
+
+    const detail = document.getElementById("productDetail");
+
+    if (product) {
+      detail.innerHTML = `
+        <img src="${product.image}" alt="${product.title}" width="250">
+        <h1>${product.title}</h1>
+        <p>${product.price}</p>
+        <p>${product.description}</p>
+        <a href="index.html">Vissza a katalógushoz</a>
+      `;
+    } else {
+      detail.innerHTML = "<h1>Nem található termék</h1>";
+    }
+  </script>
+</body>
+</html>
