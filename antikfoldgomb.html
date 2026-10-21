@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balvi Antik Stílusú Mágneses Földgömb - Webshop</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            850: '#6d3c14',
+                            900: '#422006',
+                        },
+                        copper: '#B87333',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .image-zoom-container {
+            overflow: hidden;
+        }
+        .image-zoom-container img {
+            transition: transform 0.4s ease-out;
+        }
+        .image-zoom-container:hover img {
+            transform: scale(1.15);
+        }
+        .badge-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+        /* Custom Scrollbar for smooth modern UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-amber-900 text-amber-100 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
+        <i class="fa-solid fa-truck-fast mr-2">text</i>Ingyenes szállítás 15 000 Ft feletti rendelés esetén! Eredeti dobozában, azonnal raktárról.
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="text-xl font-bold tracking-tight text-amber-950 flex items-center gap-2">
+                    <i class="fa-solid fa-earth-americas text-amber-700"></i>
+                    <span>VINTAGE<span class="text-amber-700">HOME</span></span>
+                </a>
+            </div>
+
+            <!-- Breadcrumbs / Nav Links -->
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-stone-600">
+                <a href="#" class="hover:text-amber-800 transition">Főoldal</a>
+                <a href="#" class="hover:text-amber-800 transition">Lakásdekoráció</a>
+                <a href="#" class="hover:text-amber-800 transition">Íróasztali kiegészítők</a>
+                <span class="text-stone-400">/</span>
+                <span class="text-stone-900 font-semibold">Földgömb</span>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-4">
+                <button class="text-stone-600 hover:text-amber-800 p-2 relative" title="Kedvencek">
+                    <i class="fa-regular fa-heart text-xl"></i>
+                    <span id="fav-count" class="hidden absolute -top-1 -right-1 bg-amber-700 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center font-bold">1</span>
+                </button>
+                <button id="cart-btn" class="flex items-center gap-2 bg-stone-900 hover:bg-amber-950 text-white px-4 py-2 rounded-lg text-sm font-medium transition shadow-sm">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="hidden sm:inline">Kosár</span>
+                    <span id="cart-count-badge" class="bg-amber-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+        
+        <!-- Mobile Breadcrumb -->
+        <nav class="flex md:hidden text-xs text-stone-500 mb-4 space-x-2">
+            <a href="#" class="hover:underline">Főoldal</a>
+            <span>/</span>
+            <a href="#" class="hover:underline">Dekoráció</a>
+            <span>/</span>
+            <span class="text-stone-800 truncate">Balvi Antik Földgömb</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Column: Image Gallery -->
+            <section class="lg:col-span-7 flex flex-col gap-4">
+                <div class="relative bg-stone-100 rounded-2xl overflow-hidden border border-stone-200 shadow-sm aspect-square md:aspect-[4/3] flex items-center justify-center image-zoom-container">
+                    
+                    <!-- Main Product Image -->
+                    <img id="main-product-image" 
+                         src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Balvi Antik stílusú mágneses földgömb" 
+                         class="w-full h-full object-cover cursor-crosshair">
+                    
+                    <!-- Badges overlaid on image -->
+                    <div class="absolute top-4 left-4 flex flex-col gap-2 z-10">
+                        <span class="bg-amber-800 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                            <i class="fa-solid fa-sparkles"></i> Új, címke nélkül
+                        </span>
+                        <span class="bg-stone-900/80 backdrop-blur-sm text-stone-100 text-xs font-medium px-3 py-1 rounded-full shadow-md">
+                            12 db mágnessel
+                        </span>
+                    </div>
+
+                    <button id="wishlist-toggle" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-md hover:bg-white text-stone-600 hover:text-red-500 transition z-10">
+                        <i class="fa-regular fa-heart text-lg" id="wishlist-icon"></i>
+                    </button>
+
+                    <div class="absolute bottom-4 right-4 bg-stone-900/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md flex items-center gap-1.5">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Vigye fölé az egeret a nagyításhoz
+                    </div>
+                </div>
+
+                <!-- Gallery Thumbnails -->
+                <div class="grid grid-cols-4 gap-3 sm:gap-4">
+                    <button onclick="changeImage('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1000&q=80', this)" 
+                            class="thumb-btn active border-2 border-amber-800 rounded-xl overflow-hidden bg-stone-100 aspect-square focus:outline-none transition">
+                        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=300&q=80" alt="Földgömb szemből" class="w-full h-full object-cover">
+                    </button>
+                    <button onclick="changeImage('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=80', this)" 
+                            class="thumb-btn border-2 border-transparent hover:border-stone-300 rounded-xl overflow-hidden bg-stone-100 aspect-square focus:outline-none transition">
+                        <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=300&q=80" alt="Földgömb közeli nézet" class="w-full h-full object-cover">
+                    </button>
+                    <button onclick="changeImage('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=80', this)" 
+                            class="thumb-btn border-2 border-transparent hover:border-stone-300 rounded-xl overflow-hidden bg-stone-100 aspect-square focus:outline-none transition">
+                        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=300&q=80" alt="Utazás tervezése térképpel" class="w-full h-full object-cover">
+                    </button>
+                    <button onclick="changeImage('https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=1000&q=80', this)" 
+                            class="thumb-btn border-2 border-transparent hover:border-stone-300 rounded-xl overflow-hidden bg-stone-100 aspect-square focus:outline-none transition">
+                        <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=300&q=80" alt="Íróasztali dísz" class="w-full h-full object-cover">
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right Column: Product Information & Purchase Panel -->
+            <section class="lg:col-span-5 flex flex-col justify-between">
+                <div>
+                    <!-- Brand & Upload Info -->
+                    <div class="flex items-center justify-between text-xs text-stone-500 mb-2">
+                        <span class="uppercase tracking-wider font-semibold text-amber-800">Márka: Balvi</span>
+                        <span class="flex items-center gap-1"><i class="fa-regular fa-clock"></i> Feltöltve 5 nappal ezelőtt</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="text-2xl sm:text-3xl font-bold text-stone-900 leading-tight mb-3">
+                        Antik Stílusú Mágneses Földgömb
+                    </h1>
+
+                    <!-- Rating & Quick Status -->
+                    <div class="flex items-center gap-3 mb-4 text-sm">
+                        <div class="flex text-amber-500 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-stone-500 text-xs">(5.0 / 12 értékelés)</span>
+                        <span class="text-stone-300">•</span>
+                        <span class="text-emerald-700 font-medium text-xs flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check"></i> Készleten (1 db)
+                        </span>
+                    </div>
+
+                    <!-- Price Box -->
+                    <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-200/60 mb-6 flex items-baseline justify-between">
+                        <div>
+                            <span class="text-3xl font-extrabold text-amber-950">8 500 Ft</span>
+                            <span class="text-xs text-stone-500 block mt-0.5">Az ár tartalmazza az ÁFA-t</span>
+                        </div>
+                        <span class="bg-amber-200/80 text-amber-900 text-xs font-semibold px-2.5 py-1 rounded">
+                            Egyedi ajánlat
+                        </span>
+                    </div>
+
+                    <!-- Key Spec Highlights -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 text-sm">
+                        <div class="p-3 bg-white rounded-lg border border-stone-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 shrink-0">
+                                <i class="fa-solid fa-cubes"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-stone-500 block">Állapot</span>
+                                <span class="font-medium text-stone-800">Új, címke nélkül</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white rounded-lg border border-stone-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 shrink-0">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-stone-500 block">Anyag</span>
+                                <span class="font-medium text-stone-800">Fém (réz hatás)</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white rounded-lg border border-stone-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 shrink-0">
+                                <i class="fa-solid fa-magnet"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-stone-500 block">Tartozék</span>
+                                <span class="font-medium text-stone-800">12 db mágnes</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white rounded-lg border border-stone-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-amber-800 shrink-0">
+                                <i class="fa-solid fa-box-open"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-stone-500 block">Csomagolás</span>
+                                <span class="font-medium text-stone-800">Eredeti doboz</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity & Add to Cart -->
+                    <div class="flex flex-col sm:flex-row gap-3 mb-6">
+                        <!-- Quantity selector -->
+                        <div class="flex items-center justify-between border border-stone-300 rounded-xl bg-white px-3 py-2 w-full sm:w-32">
+                            <button onclick="decrementQty()" class="text-stone-500 hover:text-stone-800 w-8 h-8 flex items-center justify-center text-lg font-bold">-</button>
+                            <span id="qty-val" class="font-semibold text-stone-900">1</span>
+                            <button onclick="incrementQty()" class="text-stone-500 hover:text-stone-800 w-8 h-8 flex items-center justify-center text-lg font-bold">+</button>
+                        </div>
+
+                        <!-- Add to Cart Button -->
+                        <button id="add-to-cart-btn" onclick="addToCart()" class="flex-1 bg-amber-800 hover:bg-amber-900 text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Kosárba teszem</span>
+                        </button>
+                    </div>
+
+                    <!-- Trust Signals -->
+                    <div class="border-t border-stone-200 pt-4 space-y-2 text-xs text-stone-600">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-box text-amber-700"></i>
+                            <span>Gondosan csomagolva, eredeti dobozában postázzuk</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-left text-amber-700"></i>
+                            <span>14 napos visszavásárlási garancia</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield text-amber-700"></i>
+                            <span>Biztonságos bankkártyás fizetés vagy utánvét</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Lower Section: Tabs for Description & Specs -->
+        <section class="mt-12 bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden">
+            <!-- Tab Headers -->
+            <div class="flex border-b border-stone-200 bg-stone-50/50">
+                <button onclick="switchTab('desc')" id="tab-btn-desc" class="tab-btn px-6 py-4 font-semibold text-sm border-b-2 border-amber-800 text-amber-900 focus:outline-none transition">
+                    Termékleírás
+                </button>
+                <button onclick="switchTab('specs')" id="tab-btn-specs" class="tab-btn px-6 py-4 font-semibold text-sm border-b-2 border-transparent text-stone-500 hover:text-stone-800 focus:outline-none transition">
+                    Részletes Adatok
+                </button>
+            </div>
+
+            <!-- Tab Content: Description -->
+            <div id="tab-content-desc" class="p-6 sm:p-8 space-y-4 text-stone-700 leading-relaxed text-sm sm:text-base">
+                <p class="font-medium text-stone-900 text-base sm:text-lg">
+                    Eladó a képeken látható, szuper stílusos mágneses földgömb a prémium Balvi márkától!
+                </p>
+                <p>
+                    Kifejezetten antik hatású, nagyon elegáns darab a döntött fém talpával – bevethető kifinomult díszként az íróasztalon, könyvespolcon, de a következő nagy utazások megtervezéséhez is zseniális partner.
+                </p>
+                <p>
+                    A csomag részét képezi <strong class="text-amber-900">12 darab kis méretű mágnes is</strong>, amikkel könnyedén be tudod jelölni a földgömbön, merre jártál már a világban, vagy hova készülsz legközelebb. Akár apróbb jegyzeteket, fotókat vagy emlékeztetőket is rögzíthetsz rájuk.
+                </p>
+                <div class="bg-stone-50 border-l-4 border-amber-800 p-4 my-4 rounded-r-lg">
+                    <p class="text-xs sm:text-sm text-stone-700 italic">
+                        <strong>Állapot információ:</strong> A termék hibátlan, teljesen új állapotban van (címke nélkül), saját eredeti gyári dobozában kerül átadásra/küldésre.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tab Content: Specifications -->
+            <div id="tab-content-specs" class="p-6 sm:p-8 hidden">
+                <div class="max-w-2xl">
+                    <h3 class="text-base font-semibold text-stone-900 mb-4">Műszaki és fizikai jellemzők</h3>
+                    <table class="w-full text-sm text-left border-collapse">
+                        <tbody>
+                            <tr class="border-b border-stone-100">
+                                <td class="py-3 font-medium text-stone-500 w-1/3">Márka</td>
+                                <td class="py-3 font-semibold text-stone-800">Balvi</td>
+                            </tr>
+                            <tr class="border-b border-stone-100">
+                                <td class="py-3 font-medium text-stone-500">Termék állapota</td>
+                                <td class="py-3 text-stone-800">Új, címkék nélkül</td>
+                            </tr>
+                            <tr class="border-b border-stone-100">
+                                <td class="py-3 font-medium text-stone-500">Fő anyaga</td>
+                                <td class="py-3 text-stone-800">Fém (Talp és tartószerkezet)</td>
+                            </tr>
+                            <tr class="border-b border-stone-100">
+                                <td class="py-3 font-medium text-stone-500">Színvilág</td>
+                                <td class="py-3 text-stone-800 flex items-center gap-2">
+                                    <span class="w-3.5 h-3.5 rounded-full bg-amber-800 inline-block border border-stone-300"></span>
+                                    Barna / Antik Réz
+                                </td>
+                            </tr>
+                            <tr class="border-b border-stone-100">
+                                <td class="py-3 font-medium text-stone-500">Méretek (M x SZ x H)</td>
+                                <td class="py-3 text-stone-800">28,5 x 22,8 x 22,8 cm</td>
+                            </tr>
+                            <tr class="border-b border-stone-100">
+                                <td class="py-3 font-medium text-stone-500">Súly</td>
+                                <td class="py-3 text-stone-800">kb. 1,1 kg (1095 g)</td>
+                            </tr>
+                            <tr class="border-b border-stone-100">
+                                <td class="py-3 font-medium text-stone-500">Tartozékok</td>
+                                <td class="py-3 text-stone-800">12 db mágneses jelölő, Eredeti doboz</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 text-xs py-8 mt-12 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-earth-americas text-amber-600 text-base"></i>
+                <span class="text-stone-200 font-semibold text-sm">VINTAGE HOME Webshop</span>
+            </div>
+            <p>© 2026 Minden jog fenntartva. Balvi Antik Földgömb termékoldal.</p>
+            <div class="flex space-x-4 text-base">
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Added To Cart Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-stone-900 text-white px-5 py-4 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h4 class="font-semibold text-sm">Sikeresen kosárba téve!</h4>
+            <p class="text-xs text-stone-300">Balvi Antik Stílusú Földgömb</p>
+        </div>
+    </div>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        let currentQty = 1;
+        let isFavorite = false;
+        let cartItemsCount = 0;
+
+        // Image Swap Functionality
+        function changeImage(src, btnElement) {
+            document.getElementById('main-product-image').src = src;
+            
+            // Remove active border class from all thumbnails
+            const thumbnails = document.querySelectorAll('.thumb-btn');
+            thumbnails.forEach(btn => {
+                btn.classList.remove('border-amber-800');
+                btn.classList.add('border-transparent');
+            });
+
+            // Set active state on clicked thumbnail
+            btnElement.classList.remove('border-transparent');
+            btnElement.classList.add('border-amber-800');
+        }
+
+        // Quantity Selector logic
+        function incrementQty() {
+            if (currentQty < 1) { // Limited stock available
+                currentQty++;
+                document.getElementById('qty-val').innerText = currentQty;
+            }
+        }
+
+        function decrementQty() {
+            if (currentQty > 1) {
+                currentQty--;
+                document.getElementById('qty-val').innerText = currentQty;
+            }
+        }
+
+        // Wishlist Toggle
+        const wishlistBtn = document.getElementById('wishlist-toggle');
+        const wishlistIcon = document.getElementById('wishlist-icon');
+        const favCountBadge = document.getElementById('fav-count');
+
+        wishlistBtn.addEventListener('click', () => {
+            isFavorite = !isFavorite;
+            if (isFavorite) {
+                wishlistIcon.classList.remove('fa-regular', 'text-stone-600');
+                wishlistIcon.classList.add('fa-solid', 'text-red-500');
+                favCountBadge.classList.remove('hidden');
+            } else {
+                wishlistIcon.classList.remove('fa-solid', 'text-red-500');
+                wishlistIcon.classList.add('fa-regular', 'text-stone-600');
+                favCountBadge.classList.add('hidden');
+            }
+        });
+
+        // Add To Cart Action
+        function addToCart() {
+            cartItemsCount += currentQty;
+            document.getElementById('cart-count-badge').innerText = cartItemsCount;
+
+            // Show Toast Notification
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            const descContent = document.getElementById('tab-content-desc');
+            const specsContent = document.getElementById('tab-content-specs');
+            const descBtn = document.getElementById('tab-btn-desc');
+            const specsBtn = document.getElementById('tab-btn-specs');
+
+            if (tabName === 'desc') {
+                descContent.classList.remove('hidden');
+                specsContent.classList.add('hidden');
+
+                descBtn.classList.add('border-amber-800', 'text-amber-900');
+                descBtn.classList.remove('border-transparent', 'text-stone-500');
+
+                specsBtn.classList.remove('border-amber-800', 'text-amber-900');
+                specsBtn.classList.add('border-transparent', 'text-stone-500');
+            } else {
+                specsContent.classList.remove('hidden');
+                descContent.classList.add('hidden');
+
+                specsBtn.classList.add('border-amber-800', 'text-amber-900');
+                specsBtn.classList.remove('border-transparent', 'text-stone-500');
+
+                descBtn.classList.remove('border-amber-800', 'text-amber-900');
+                descBtn.classList.add('border-transparent', 'text-stone-500');
+            }
+        }
+    </script>
+</body>
+</html>
