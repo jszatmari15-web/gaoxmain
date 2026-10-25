@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balvi 360° Kék Földgömb - Automatán Forgó Dísz - Webshop</title>
-   <script src="https://cdn.tailwindcss.com"></script>
+    <title>Balvi 360° Kék Földgömb - Termékoldal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -35,15 +36,11 @@
             background-color: #f8fafc;
             color: #111111;
         }
-        }
-
         .brand-wordmark {
             letter-spacing: 0.08em;
             text-transform: uppercase;
             line-height: 1;
         }
-
-        /* Custom smooth scroll bar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -59,468 +56,234 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between antialiased">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-ocean-900 text-ocean-100 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
-        <i class="fa-solid fa-truck-fast mr-2 text-ocean-300"></i>Gyors szállítás 1-2 munkanapon belül! Eredeti gyári dobozában, raktárról.
-    </div>
-
-    <!-- Header Navigation -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <!-- Fejléc / Header -->
+    <header class="bg-black text-white sticky top-0 z-40 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <a href="#" class="text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2">
-                    <i class="fa-solid fa-globe text-ocean-600"></i>
-                    <span>MODERN<span class="text-ocean-600">DECOR</span></span>
-                </a>
+            <div class="flex items-center min-w-0">
+                <div class="brand-mark rounded-full p-1.5 flex items-center justify-center shrink-0">
+                    <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png" alt="GAOX logo" class="h-9 w-9">
+                </div>
+                <div class="ml-3 flex items-center">
+                    <span class="brand-wordmark font-black text-lg sm:text-2xl text-white">GAOX</span>
+                </div>
             </div>
 
-            <!-- Breadcrumbs / Nav Links -->
-            <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
-                <a href="#" class="hover:text-ocean-600 transition">Főoldal</a>
-                <a href="#" class="hover:text-ocean-600 transition">Lakásdekoráció</a>
-                <a href="#" class="hover:text-ocean-600 transition">Interaktív kiegészítők</a>
-                <span class="text-slate-300">/</span>
-                <span class="text-slate-900 font-semibold">360° Kék Földgömb</span>
-            </nav>
-
-            <!-- Actions -->
-            <div class="flex items-center space-x-4">
-                <button id="nav-fav-btn" class="text-slate-600 hover:text-ocean-600 p-2 relative" title="Kedvencek">
-                    <i class="fa-regular fa-heart text-xl" id="nav-fav-icon"></i>
-                    <span id="fav-badge" class="hidden absolute -top-1 -right-1 bg-rose-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center font-bold">1</span>
-                </button>
-                <button id="cart-btn" class="flex items-center gap-2 bg-slate-900 hover:bg-ocean-900 text-white px-4 py-2 rounded-lg text-sm font-medium transition shadow-sm">
-                    <i class="fa-solid fa-bag-shopping text-ocean-400"></i>
-                    <span class="hidden sm:inline">Kosár</span>
-                    <span id="cart-count-badge" class="bg-ocean-600 text-white text-xs font-bold px-1.5 py-0.5 rounded-full">0</span>
-                </button>
+            <!-- Kereső sáv (Desktop) -->
+            <div class="hidden md:flex flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825]/50">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-neutral-400 text-sm"></i>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
-        
-        <!-- Mobile Breadcrumb -->
-        <nav class="flex md:hidden text-xs text-slate-500 mb-4 space-x-2">
-            <a href="#" class="hover:underline">Főoldal</a>
-            <span>/</span>
-            <a href="#" class="hover:underline">Dekoráció</a>
-            <span>/</span>
-            <span class="text-slate-800 truncate">Balvi 360° Kék Földgömb</span>
-        </nav>
+    <!-- Morzsamenü / Breadcrumb -->
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 w-full">
+        <ol class="flex items-center space-x-2 text-xs sm:text-sm text-gray-500">
+            <li><a href="https://gaox.hu/?srsltid=AYCX9vLhzAnEQP6IG3isxEqZBMF7OtgseHxivGSSFD4jNO2EDena2jvU" class="hover:text-black transition">Kezdőoldal</a></li>
+            <li><i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i></li>
+            <li class="font-medium text-black truncate">Balvi 360° Kék Földgömb</li>
+        </ol>
+    </nav>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- Left Column: Image Gallery & 360 Simulator -->
-            <section class="lg:col-span-7 flex flex-col gap-4">
-                <div class="relative bg-gradient-to-b from-slate-100 to-ocean-50/30 rounded-2xl overflow-hidden border border-slate-200 shadow-sm aspect-square md:aspect-[4/3] flex items-center justify-center image-zoom-container group">
-                    
-                    <!-- Main Product Image with optional rotation animation -->
-                    <img id="main-product-image" 
-                         src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=80" 
-                         alt="Balvi 360 Kék Automatán Forgó Földgömb" 
-                         class="w-4/5 h-4/5 object-contain cursor-crosshair transition-transform duration-300">
-                    
-                    <!-- Badges overlaid on image -->
-                    <div class="absolute top-4 left-4 flex flex-col gap-2 z-10">
-                        <span class="bg-emerald-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
-                            <i class="fa-solid fa-tag"></i> Új, címkékkel
-                        </span>
-                        <span class="bg-ocean-700 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
-                            <i class="fa-solid fa-arrows-spin animate-spin" style="animation-duration: 4s;"></i> 360° Forgó motor
-                        </span>
+    <!-- Fő Termék Szekció -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex-grow w-full">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 sm:p-6 lg:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                
+                <!-- BAL OLDAL: Termékgaléria (5/12 oszlop) -->
+                <div class="lg:col-span-5 flex flex-col space-y-4">
+                    <div class="relative bg-neutral-50 rounded-xl border border-gray-200 overflow-hidden group aspect-square flex items-center justify-center">
+                        <div class="absolute top-3 left-3 z-10 flex flex-col gap-2">
+                            <span class="bg-black text-white text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm">Raktáron</span>
+                        </div>
+                        
+                        <button onclick="toggleZoomModal()" class="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow transition">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+
+                        <img id="mainProductImage" src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=80" alt="Balvi 360° Kék Földgömb" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
                     </div>
 
-                    <!-- Favorite Button -->
-                    <button id="wishlist-toggle" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-md hover:bg-white text-slate-600 hover:text-rose-500 transition z-10">
-                        <i class="fa-regular fa-heart text-lg" id="wishlist-icon"></i>
-                    </button>
-
-                    <!-- Interactive Rotation Indicator Toggle -->
-                    <div class="absolute bottom-4 left-4 z-10">
-                        <button onclick="toggleRotationDemo()" id="rotation-demo-btn" class="bg-slate-900/80 hover:bg-slate-900 text-white text-xs px-3 py-1.5 rounded-lg backdrop-blur-md transition flex items-center gap-2 shadow-lg">
-                            <i class="fa-solid fa-rotate text-ocean-400" id="rotation-icon"></i>
-                            <span id="rotation-btn-text">Forgatás szimulálása</span>
+                    <!-- Bélyegképek -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <button onclick="changeImage(0)" class="thumb-btn border-2 border-[#4DA825] bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none ring-1 ring-[#4DA825]/50">
+                            <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=300&q=80" alt="Kép 1" class="w-full h-full object-cover rounded-md">
+                        </button>
+                        <button onclick="changeImage(1)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                            <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=300&q=80" alt="Kép 2" class="w-full h-full object-cover rounded-md">
+                        </button>
+                        <button onclick="changeImage(2)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                            <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=300&q=80" alt="Kép 3" class="w-full h-full object-cover rounded-md">
                         </button>
                     </div>
-
-                    <div class="absolute bottom-4 right-4 bg-slate-900/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md flex items-center gap-1.5 hidden sm:flex">
-                        <i class="fa-solid fa-magnifying-glass-plus"></i> Vigye fölé az egeret
-                    </div>
                 </div>
 
-                <!-- Gallery Thumbnails -->
-                <div class="grid grid-cols-4 gap-3 sm:gap-4">
-                    <button onclick="changeImage('https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=80', this)" 
-                            class="thumb-btn active border-2 border-ocean-600 rounded-xl overflow-hidden bg-white aspect-square focus:outline-none transition p-1">
-                        <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=300&q=80" alt="Kék Földgömb szemből" class="w-full h-full object-contain">
-                    </button>
-                    <button onclick="changeImage('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1000&q=80', this)" 
-                            class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-xl overflow-hidden bg-white aspect-square focus:outline-none transition p-1">
-                        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=300&q=80" alt="Földgömb szögből" class="w-full h-full object-contain">
-                    </button>
-                    <button onclick="changeImage('https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=1000&q=80', this)" 
-                            class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-xl overflow-hidden bg-white aspect-square focus:outline-none transition p-1">
-                        <img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=300&q=80" alt="Íróasztali dekorációként" class="w-full h-full object-cover">
-                    </button>
-                    <button onclick="changeImage('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1000&q=80', this)" 
-                            class="thumb-btn border-2 border-transparent hover:border-slate-300 rounded-xl overflow-hidden bg-white aspect-square focus:outline-none transition p-1">
-                        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=300&q=80" alt="Részletes felületi fotó" class="w-full h-full object-cover">
-                    </button>
-                </div>
-            </section>
-
-            <!-- Right Column: Product Information & Purchase Panel -->
-            <section class="lg:col-span-5 flex flex-col justify-between">
-                <div>
-                    <!-- Brand & Upload Info -->
-                    <div class="flex items-center justify-between text-xs text-slate-500 mb-2">
-                        <span class="uppercase tracking-wider font-bold text-ocean-700 bg-ocean-50 px-2 py-0.5 rounded border border-ocean-200">Márka: Balvi</span>
-                        <span class="flex items-center gap-1"><i class="fa-regular fa-clock"></i> Feltöltve 1 hete</span>
-                    </div>
-
-                    <!-- Title -->
-                    <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 leading-tight mb-3">
-                        Balvi 360° Kék Földgömb
-                        <span class="block text-base font-normal text-slate-500 mt-1">Automatán Forgó Íróasztali Dísz</span>
-                    </h1>
-
-                    <!-- Rating & Stock Status -->
-                    <div class="flex items-center gap-3 mb-4 text-sm">
-                        <div class="flex text-amber-400 text-xs">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <span class="text-slate-500 text-xs">(5.0 / 8 értékelés)</span>
-                        <span class="text-slate-300">•</span>
-                        <span class="text-emerald-700 font-medium text-xs flex items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                            <i class="fa-solid fa-circle-check"></i> Raktáron (Utolsó darab)
-                        </span>
-                    </div>
-
-                    <!-- Price Box -->
-                    <div class="bg-gradient-to-r from-ocean-50/80 to-slate-50 rounded-xl p-4 border border-ocean-200/80 mb-6 flex items-baseline justify-between shadow-sm">
-                        <div>
-                            <span class="text-3xl font-extrabold text-slate-900">5 000 Ft</span>
-                            <span class="text-xs text-slate-500 block mt-0.5">Az ár tartalmazza az ÁFA-t</span>
-                        </div>
-                        <span class="bg-ocean-600 text-white text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm">
-                            Szuper Ár
-                        </span>
-                    </div>
-
-                    <!-- Highlight Features Grid -->
-                    <div class="grid grid-cols-2 gap-3 mb-6 text-sm">
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-3 shadow-2xs">
-                            <div class="w-9 h-9 rounded-lg bg-ocean-50 text-ocean-600 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-tag"></i>
-                            </div>
+                <!-- JOBB OLDAL: Termékinfók & Vásárlás (7/12 oszlop) -->
+                <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+                    <div>
+                        <div class="flex justify-between items-start">
                             <div>
-                                <span class="text-xs text-slate-400 block">Állapot</span>
-                                <span class="font-semibold text-slate-800">Új, címkékkel</span>
+                                <h1 class="text-2xl sm:text-3xl font-bold text-black tracking-tight">Balvi 360° Kék Földgömb</h1>
+                                <p class="text-xs text-gray-500 mt-1 flex items-center gap-2">
+                                    <span class="inline-block w-1 h-1 bg-gray-300 rounded-full"></span> Márka: Balvi
+                                </p>
+                            </div>
+                            <button class="text-gray-400 hover:text-red-500 transition p-2 rounded-full hover:bg-gray-50">
+                                <i class="fa-regular fa-heart text-xl"></i>
+                            </button>
+                        </div>
+
+                        <!-- Ár & Raktárkészlet -->
+                        <div class="mt-4 pb-4 border-b border-gray-100 flex items-baseline justify-between">
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-3xl sm:text-4xl font-extrabold text-black">5 000 Ft</span>
+                                <span class="text-xs text-gray-500">/ db</span>
+                            </div>
+                            <div class="flex items-center text-xs font-semibold text-[#4DA825] bg-[#f0f9eb] px-3 py-1.5 rounded-full">
+                                <span class="w-2 h-2 rounded-full bg-[#4DA825] mr-2 animate-pulse"></span> Raktáron
                             </div>
                         </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-3 shadow-2xs">
-                            <div class="w-9 h-9 rounded-lg bg-ocean-50 text-ocean-600 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-arrows-spin"></i>
+
+                        <!-- Rövid leírás -->
+                        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                            Automatán forgó kék íróasztali földgömb. A beépített motoros mechanizmusnak köszönhetően teljesen önállóan, simán forog a saját tengelye körül, lenyűgöző látványt nyújtva.
+                        </p>
+
+                        <!-- Főbb tulajdonságok gyorstáblázat -->
+                        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="bg-neutral-50 p-3 rounded-lg border border-neutral-100">
+                                <span class="block text-xs text-gray-500 uppercase font-semibold">Mechanizmus</span>
+                                <span class="text-sm font-medium text-black">360° Motoros Forgás</span>
                             </div>
-                            <div>
-                                <span class="text-xs text-slate-400 block">Funkció</span>
-                                <span class="font-semibold text-slate-800">360° Önálló forgás</span>
+                            <div class="bg-neutral-50 p-3 rounded-lg border border-neutral-100">
+                                <span class="block text-xs text-gray-500 uppercase font-semibold">Anyag</span>
+                                <span class="text-sm font-medium text-black">ABS Műanyag</span>
+                            </div>
+                            <div class="bg-neutral-50 p-3 rounded-lg border border-neutral-100">
+                                <span class="block text-xs text-gray-500 uppercase font-semibold">Állapot</span>
+                                <span class="text-sm font-medium text-black">Új, dobozában</span>
                             </div>
                         </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-3 shadow-2xs">
-                            <div class="w-9 h-9 rounded-lg bg-ocean-50 text-ocean-600 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-ruler-combined"></i>
-                            </div>
-                            <div>
-                                <span class="text-xs text-slate-400 block">Méret</span>
-                                <span class="font-semibold text-slate-800">14 x 14 x 14 cm</span>
-                            </div>
-                        </div>
-                        <div class="p-3 bg-white rounded-xl border border-slate-200 flex items-center gap-3 shadow-2xs">
-                            <div class="w-9 h-9 rounded-lg bg-ocean-50 text-ocean-600 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-box"></i>
-                            </div>
-                            <div>
-                                <span class="text-xs text-slate-400 block">Csomagolás</span>
-                                <span class="font-semibold text-slate-800">Eredeti dobozban</span>
+
+                        <!-- Méretek Kiemelése -->
+                        <div class="mt-4 p-3 bg-neutral-950 text-white rounded-lg flex items-center justify-between text-xs sm:text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-ruler text-[#4DA825]"></i>
+                                <span><strong>Méretek:</strong> 14 x 14 x 14 cm</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Quantity & Add to Cart -->
-                    <div class="flex flex-col sm:flex-row gap-3 mb-6">
-                        <!-- Quantity Selector -->
-                        <div class="flex items-center justify-between border border-slate-300 rounded-xl bg-white px-3 py-2 w-full sm:w-32">
-                            <button onclick="decrementQty()" class="text-slate-400 hover:text-slate-700 w-8 h-8 flex items-center justify-center text-lg font-bold transition">-</button>
-                            <span id="qty-val" class="font-bold text-slate-900">1</span>
-                            <button onclick="incrementQty()" class="text-slate-400 hover:text-slate-700 w-8 h-8 flex items-center justify-center text-lg font-bold transition">+</button>
+                    <!-- Garancia & Gyors infók -->
+                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-500 pt-2">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-truck-fast text-[#4DA825]"></i>
+                            <span>Gyors 1-2 napos szállítás</span>
                         </div>
-
-                        <!-- Add to Cart Button -->
-                        <button id="add-to-cart-btn" onclick="addToCart()" class="flex-1 bg-ocean-600 hover:bg-ocean-700 active:bg-ocean-800 text-white font-semibold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-cart-plus"></i>
-                            <span>Kosárba teszem</span>
-                        </button>
-                    </div>
-
-                    <!-- Trust Badges -->
-                    <div class="border-t border-slate-200 pt-4 space-y-2 text-xs text-slate-600">
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-truck-ramp-box text-ocean-600 text-sm"></i>
-                            <span>Gondos, ütésálló csomagolásban postázzuk</span>
-                        </div>
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-rotate-left text-ocean-600 text-sm"></i>
-                            <span>14 napos pénzvisszafizetési garancia</span>
-                        </div>
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-shield-halved text-ocean-600 text-sm"></i>
-                            <span>Biztonságos fizetés (Bankkártya, Utánvét)</span>
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-rotate-left text-[#4DA825]"></i>
+                            <span>14 napos elállási jog</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
-        <!-- Lower Section: Tabs for Description & Specs -->
-        <section class="mt-12 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-            <!-- Tab Headers -->
-            <div class="flex border-b border-slate-200 bg-slate-50/70">
-                <button onclick="switchTab('desc')" id="tab-btn-desc" class="tab-btn px-6 py-4 font-semibold text-sm border-b-2 border-ocean-600 text-ocean-700 focus:outline-none transition flex items-center gap-2">
-                    <i class="fa-solid fa-file-lines"></i>
-                    Termékleírás
-                </button>
-                <button onclick="switchTab('specs')" id="tab-btn-specs" class="tab-btn px-6 py-4 font-semibold text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-800 focus:outline-none transition flex items-center gap-2">
-                    <i class="fa-solid fa-list-check"></i>
-                    Műszaki Adatok
-                </button>
-            </div>
-
-            <!-- Tab Content: Description -->
-            <div id="tab-content-desc" class="p-6 sm:p-8 space-y-4 text-slate-700 leading-relaxed text-sm sm:text-base">
-                <p class="font-semibold text-slate-900 text-base sm:text-lg">
-                    Varázsold egyedivé a munkaterületed vagy az otthonod ezzel a látványos, forradalmi kialakítású kék földgömbbel! 🌍
-                </p>
-                <p>
-                    Eladó egy kifejezetten elegáns, kék színű Balvi földgömb, amely tökéletes mutatós dísze lehet az íróasztalodnak, könyvespolcodnak vagy a nappalinak. Modern színvilága és tiszta kontúrjai azonnal magukra vonzzák a tekintetet.
-                </p>
-                <div class="bg-ocean-50/60 border-l-4 border-ocean-600 p-4 my-4 rounded-r-lg text-slate-800">
-                    <h4 class="font-semibold text-ocean-900 mb-1 flex items-center gap-2">
-                        <i class="fa-solid fa-battery-full text-ocean-600"></i> Beépített Motoros Forgás
-                    </h4>
-                    <p class="text-xs sm:text-sm text-slate-700">
-                        A mellékelt/behelyezhető elem segítségével a földgömb folyamatosan, lágyan forog a saját tengelye körül 360°-ban. Nincs szükség kézi tekerésre – interaktív, mégis megnyugtató vizuális élményt nyújt.
-                    </p>
-                </div>
-                <p>
-                    A termék teljesen új, eredeti gyári címkéjével és saját dobozában kerül átadásra. Kiváló ajándékötlet utazóknak, diákoknak vagy az elegáns irodai kiegészítők kedvelőinek.
-                </p>
-            </div>
-
-            <!-- Tab Content: Specifications -->
-            <div id="tab-content-specs" class="p-6 sm:p-8 hidden">
-                <div class="max-w-2xl">
-                    <h3 class="text-base font-semibold text-slate-900 mb-4">Műszaki és termékjellemzők</h3>
-                    <table class="w-full text-sm text-left border-collapse">
-                        <tbody>
-                            <tr class="border-b border-slate-100">
-                                <td class="py-3 font-medium text-slate-500 w-1/3">Gyártó / Márka</td>
-                                <td class="py-3 font-bold text-slate-800">Balvi</td>
-                            </tr>
-                            <tr class="border-b border-slate-100">
-                                <td class="py-3 font-medium text-slate-500">Termék állapota</td>
-                                <td class="py-3 text-emerald-700 font-semibold flex items-center gap-1.5">
-                                    <i class="fa-solid fa-check-double text-xs"></i> Új, címkékkel
-                                </td>
-                            </tr>
-                            <tr class="border-b border-slate-100">
-                                <td class="py-3 font-medium text-slate-500">Anyagösszetétel</td>
-                                <td class="py-3 text-slate-800">Strapabíró minőségi műanyag (ABS)</td>
-                            </tr>
-                            <tr class="border-b border-slate-100">
-                                <td class="py-3 font-medium text-slate-500">Színvilág</td>
-                                <td class="py-3 text-slate-800 flex items-center gap-2">
-                                    <span class="w-3.5 h-3.5 rounded-full bg-ocean-600 inline-block border border-slate-300"></span>
-                                    Kék / Többszínű (Modern kontúrok)
-                                </td>
-                            </tr>
-                            <tr class="border-b border-slate-100">
-                                <td class="py-3 font-medium text-slate-500">Befoglaló méret</td>
-                                <td class="py-3 text-slate-800 font-mono">14 x 14 x 14 cm</td>
-                            </tr>
-                            <tr class="border-b border-slate-100">
-                                <td class="py-3 font-medium text-slate-500">Forgási mechanizmus</td>
-                                <td class="py-3 text-slate-800">360°-os automatikus tengely körüli forgás (Elemes)</td>
-                            </tr>
-                            <tr class="border-b border-slate-100">
-                                <td class="py-3 font-medium text-slate-500">Csomagolás</td>
-                                <td class="py-3 text-slate-800">Eredeti gyári ablakos doboz</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <!-- RÉSZLETES SPECIFIKÁCIÓK ÉS SZÁLLÍTÁS -->
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-3 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                <h2 class="text-xl font-bold text-black border-b border-gray-100 pb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info text-[#4DA825]"></i>Részletes Adatok
+                </h2>
+                
+                <div class="mt-6 border border-gray-100 rounded-xl overflow-hidden">
+                    <div class="bg-neutral-50 px-4 py-2 font-semibold text-xs text-gray-500 uppercase tracking-wider">
+                        Termékinformációk
+                    </div>
+                    <div class="divide-y divide-gray-100 text-sm">
+                        <div class="grid grid-cols-3 p-3 hover:bg-neutral-50/50">
+                            <span class="text-gray-500">Márka</span>
+                            <span class="col-span-2 font-medium text-black">Balvi</span>
+                        </div>
+                        <div class="grid grid-cols-3 p-3 hover:bg-neutral-50/50">
+                            <span class="text-gray-500">Működés</span>
+                            <span class="col-span-2 font-medium text-black">Elemes forgó mechanizmus</span>
+                        </div>
+                        <div class="grid grid-cols-3 p-3 hover:bg-neutral-50/50">
+                            <span class="text-gray-500">Méret</span>
+                            <span class="col-span-2 font-medium text-black">14 x 14 x 14 cm</span>
+                        </div>
+                        <div class="grid grid-cols-3 p-3 hover:bg-neutral-50/50">
+                            <span class="text-gray-500">Szín</span>
+                            <span class="col-span-2 font-medium text-black">Kék</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 text-xs py-8 mt-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-globe text-ocean-400 text-base"></i>
-                <span class="text-slate-200 font-semibold text-sm">MODERN DECOR Webshop</span>
-            </div>
-            <p>© 2026 Minden jog fenntartva. Balvi 360° Kék Földgömb termékoldal.</p>
-            <div class="flex space-x-4 text-base text-slate-400">
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-pinterest"></i></a>
+    <!-- Lábléc / Footer -->
+    <footer class="bg-black text-white mt-16 border-t border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
+                <div class="flex items-center justify-center md:justify-start space-x-3">
+                    <div class="brand-mark rounded-full p-1.5 flex items-center justify-center shrink-0">
+                        <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png" alt="GAOX logo" class="h-8 w-8">
+                    </div>
+                    <span class="brand-wordmark font-black text-xl sm:text-2xl text-white">GAOX</span>
+                    <span class="hidden sm:inline">&copy; 2026 Minden jog fenntartva.</span>
+                </div>
+                <div class="flex space-x-6 text-xs">
+                    <a href="#" class="hover:text-white transition">Kapcsolat</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Added To Cart Notification Toast -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-5 py-4 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
-        <div class="w-8 h-8 rounded-full bg-ocean-500 flex items-center justify-center text-white shrink-0">
-            <i class="fa-solid fa-check"></i>
-        </div>
-        <div>
-            <h4 class="font-semibold text-sm">Sikeresen kosárba téve!</h4>
-            <p class="text-xs text-slate-300">Balvi 360° Kék Földgömb (1 db)</p>
+    <!-- Modal Kép Nagyítás -->
+    <div id="zoomModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl">
+            <button onclick="toggleZoomModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-bold text-lg text-black mb-4">Balvi 360° Kék Földgömb - Nagyítás</h3>
+            <div class="w-full h-80 flex items-center justify-center bg-neutral-50 rounded-xl p-4">
+                <img id="zoomProductImage" src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=80" alt="Nagyított kép" class="max-w-full max-h-full object-contain rounded-xl">
+            </div>
         </div>
     </div>
 
-    <!-- Interactive Logic Script -->
+    <!-- JavaScript -->
     <script>
-        let currentQty = 1;
-        let isFavorite = false;
-        let cartItemsCount = 0;
-        let isRotatingDemo = false;
+        const productImages = [
+            'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=1000&q=80',
+            'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1000&q=80',
+            'https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=1000&q=80'
+        ];
 
-        // Image Swap Functionality
-        function changeImage(src, btnElement) {
-            const mainImg = document.getElementById('main-product-image');
-            mainImg.src = src;
-            
-            // Highlight thumbnail
-            const thumbnails = document.querySelectorAll('.thumb-btn');
-            thumbnails.forEach(btn => {
-                btn.classList.remove('border-ocean-600');
-                btn.classList.add('border-transparent');
+        function changeImage(index) {
+            const buttons = document.querySelectorAll('.thumb-btn');
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.remove('border-gray-200');
+                } else {
+                    btn.classList.remove('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.add('border-gray-200');
+                }
             });
-
-            btnElement.classList.remove('border-transparent');
-            btnElement.classList.add('border-ocean-600');
+            const img = productImages[index];
+            document.getElementById('mainProductImage').src = img;
+            document.getElementById('zoomProductImage').src = img;
         }
 
-        // 360 Rotation Visual Demo Toggle
-        function toggleRotationDemo() {
-            const mainImg = document.getElementById('main-product-image');
-            const btnText = document.getElementById('rotation-btn-text');
-            const icon = document.getElementById('rotation-icon');
-
-            isRotatingDemo = !isRotatingDemo;
-
-            if (isRotatingDemo) {
-                mainImg.classList.add('animate-slow-spin');
-                mainImg.classList.remove('animate-slow-spin-paused');
-                btnText.innerText = 'Forgatás leállítása';
-                icon.classList.add('fa-spin');
-            } else {
-                mainImg.classList.remove('animate-slow-spin');
-                btnText.innerText = 'Forgatás szimulálása';
-                icon.classList.remove('fa-spin');
-            }
-        }
-
-        // Quantity Selector logic
-        function incrementQty() {
-            if (currentQty < 1) { // Limited to stock
-                currentQty++;
-                document.getElementById('qty-val').innerText = currentQty;
-            }
-        }
-
-        function decrementQty() {
-            if (currentQty > 1) {
-                currentQty--;
-                document.getElementById('qty-val').innerText = currentQty;
-            }
-        }
-
-        // Wishlist Toggle
-        const wishlistBtn = document.getElementById('wishlist-toggle');
-        const wishlistIcon = document.getElementById('wishlist-icon');
-        const navFavIcon = document.getElementById('nav-fav-icon');
-        const favBadge = document.getElementById('fav-badge');
-
-        wishlistBtn.addEventListener('click', () => {
-            isFavorite = !isFavorite;
-            if (isFavorite) {
-                wishlistIcon.classList.remove('fa-regular', 'text-slate-600');
-                wishlistIcon.classList.add('fa-solid', 'text-rose-500');
-                navFavIcon.classList.remove('fa-regular');
-                navFavIcon.classList.add('fa-solid', 'text-rose-500');
-                favBadge.classList.remove('hidden');
-            } else {
-                wishlistIcon.classList.remove('fa-solid', 'text-rose-500');
-                wishlistIcon.classList.add('fa-regular', 'text-slate-600');
-                navFavIcon.classList.remove('fa-solid', 'text-rose-500');
-                navFavIcon.classList.add('fa-regular');
-                favBadge.classList.add('hidden');
-            }
-        });
-
-        // Add To Cart Action
-        function addToCart() {
-            cartItemsCount += currentQty;
-            document.getElementById('cart-count-badge').innerText = cartItemsCount;
-
-            // Show Toast Notification
-            const toast = document.getElementById('toast');
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            toast.classList.add('translate-y-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-
-        // Tab Switching Logic
-        function switchTab(tabName) {
-            const descContent = document.getElementById('tab-content-desc');
-            const specsContent = document.getElementById('tab-content-specs');
-            const descBtn = document.getElementById('tab-btn-desc');
-            const specsBtn = document.getElementById('tab-btn-specs');
-
-            if (tabName === 'desc') {
-                descContent.classList.remove('hidden');
-                specsContent.classList.add('hidden');
-
-                descBtn.classList.add('border-ocean-600', 'text-ocean-700');
-                descBtn.classList.remove('border-transparent', 'text-slate-500');
-
-                specsBtn.classList.remove('border-ocean-600', 'text-ocean-700');
-                specsBtn.classList.add('border-transparent', 'text-slate-500');
-            } else {
-                specsContent.classList.remove('hidden');
-                descContent.classList.add('hidden');
-
-                specsBtn.classList.add('border-ocean-600', 'text-ocean-700');
-                specsBtn.classList.remove('border-transparent', 'text-slate-500');
-
-                descBtn.classList.remove('border-ocean-600', 'text-ocean-700');
-                descBtn.classList.add('border-transparent', 'text-slate-500');
-            }
+        function toggleZoomModal() {
+            document.getElementById('zoomModal').classList.toggle('hidden');
         }
     </script>
 </body>
