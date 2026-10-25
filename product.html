@@ -68,7 +68,7 @@
             <!-- Kereső sáv (Desktop) -->
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <div class="relative w-full">
-                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825] focus:border-transparent">
+                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825]/50">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-neutral-400 text-sm"></i>
                 </div>
             </div>
@@ -121,20 +121,19 @@
                             <i class="fa-solid fa-expand text-sm"></i>
                         </button>
 
-                        <img id="mainProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png" alt="Kis magyar zászló" class="w-full h-full object-contain p-6 transition-transform duration-300 transform group-hover:scale-105 cursor-pointer" onclick="toggleZoomModal()">
+                        <img id="mainProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_77x6u377x6u377x6.png" alt="Kis magyar zászló" class="w-full h-full object-contain p-2">
                     </div>
 
                     <!-- Bélyegképek (Thumbnails) -->
-                    <div class="grid grid-cols-4 gap-3">
-                        <button onclick="changeImage(0)" class="thumb-btn border-2 border-[#4DA825] bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition hover:border-[#4DA825] overflow-hidden">
-                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_77x6u377x6u377x6.png" alt="Kis magyar zászló kép 1" class="w-full h-full object-cover rounded-md">
+                    <div class="grid grid-cols-3 gap-3">
+                        <button onclick="changeImage(0)" class="thumb-btn border-2 border-[#4DA825] bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_77x6u377x6u377x6.png" alt="Kis magyar zászló kép 1" class="w-full h-full object-contain rounded-md">
                         </button>
-                        <button onclick="changeImage(1)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition overflow-hidden">
-                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_v7vguv7vguv7vguv.png" alt="Kis magyar zászló kép 2" class="w-full h-full object-cover rounded-md">
+                        <button onclick="changeImage(1)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_v7vguv7vguv7vguv.png" alt="Kis magyar zászló kép 2" class="w-full h-full object-contain rounded-md">
                         </button>
-                        </button>
-                        <button onclick="changeImage(3)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition overflow-hidden">
-                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png" alt="Kis magyar zászló kép 4" class="w-full h-full object-cover rounded-md">
+                        <button onclick="changeImage(2)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png" alt="Kis magyar zászló kép 3" class="w-full h-full object-contain rounded-md">
                         </button>
                     </div>
                 </div>
@@ -252,7 +251,7 @@
                 </h2>
                 <div class="mt-4 text-gray-600 text-sm leading-relaxed space-y-3">
                     <p>
-                        Eladó a képeken látható kis méretű magyar zászló műanyag pálcával! Nagyon könnyű, kényelmes fogású kis darab, szuper választás meccsekre, felvonulásokra, nemzeti ünnepekre és lakásdekorációra egyaránt.
+                        Eladó a képeken látható kis méretű magyar zászló műanyag pálcával! Nagyon könnyű, kényelmes fogású kis darab, szuper választás meccsekre, felvonulásokra, nemzeti ünnepekre és otthoni dekorációra is.
                     </p>
                     <p class="font-medium text-black">
                         Teljesen új, hibátlan állapotban van.
@@ -387,7 +386,7 @@
     </footer>
 
     <!-- Értesítés (Toast Notification) -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-5 py-4 rounded-xl shadow-2xl flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50 border border-neutral-800">
+    <div id="toast" class="fixed bottom-5 right-5 bg-black text-white px-5 py-4 rounded-xl shadow-2xl flex items-center space-x-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
         <div class="w-8 h-8 rounded-full bg-[#4DA825] flex items-center justify-center text-white">
             <i class="fa-solid fa-check"></i>
         </div>
@@ -405,7 +404,7 @@
             </button>
             <h3 class="font-bold text-lg text-black mb-4">Kis magyar zászló - Nagyítás</h3>
             <div class="w-full h-80 flex items-center justify-center bg-neutral-50 rounded-xl p-4">
-                <img id="zoomProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png" alt="Kis magyar zászló nagyított" class="w-full h-full object-contain rounded-lg">
+                <img id="zoomProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_77x6u377x6u377x6.png" alt="Kis magyar zászló nagyított" class="max-w-full max-h-full object-contain">
             </div>
             <p class="text-xs text-gray-500 mt-4">14 x 21 cm poliészter zászló, 30 cm-es műanyag pálcával.</p>
         </div>
@@ -452,16 +451,18 @@
             }, 3000);
         }
 
-        // Képek váltása szimuláció
+        // Képek váltása
         function changeImage(index) {
             const buttons = document.querySelectorAll('.thumb-btn');
             buttons.forEach((btn, i) => {
                 if (i === index) {
                     btn.classList.add('border-[#4DA825]');
                     btn.classList.remove('border-gray-200');
+                    btn.classList.add('ring-1', 'ring-[#4DA825]/50');
                 } else {
                     btn.classList.remove('border-[#4DA825]');
                     btn.classList.add('border-gray-200');
+                    btn.classList.remove('ring-1', 'ring-[#4DA825]/50');
                 }
             });
 
@@ -475,6 +476,9 @@
             const modal = document.getElementById('zoomModal');
             modal.classList.toggle('hidden');
         }
+
+        // Alapértelmezett kép: a bal oldali (első) thumbnail
+        changeImage(0);
     </script>
 </body>
 </html>
