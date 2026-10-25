@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Nemzeti Bolt logo">
+  <defs>
+    <radialGradient id="greenGlow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#59d13f"/>
+      <stop offset="100%" stop-color="#38a42d"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="110" cy="110" r="92" fill="#111111"/>
+  <circle cx="110" cy="110" r="82" fill="url(#greenGlow)" stroke="#0f172a" stroke-width="8"/>
+
+  <g fill="#f6f7f8" opacity="0.98">
+    <path d="M57 121c-12-19-9-35 7-44 17-10 31-9 42 4 11 12 12 26 4 39-7 11-16 18-30 22-11 3-18 0-23-21Zm29-30c-3 0-7 7-7 14 0 9 6 15 15 15 12 0 17-7 18-17 1-8-6-12-26-12Z"/>
+    <path d="M100 56c18-8 38 2 44 20 7 19-4 40-22 46-23 8-41-3-44-24-4-25 14-38 22-42Zm19 26c-6-4-18-3-24 6-6 9-5 21 7 27 15 8 27 2 31-11 3-10-2-17-14-22Z"/>
+    <path d="M109 94c15 7 28 15 35 29 8 15 6 30-7 42-14 13-32 15-48 8-16-7-29-25-27-42 1-17 18-30 47-37Zm-2 25c-11 4-18 12-20 22-2 10 7 19 19 20 15 1 26-6 28-18 3-15-11-27-27-24Z"/>
+    <path d="M154 120c12-6 25-1 31 11 5 11 1 23-11 31-14 9-28 9-36-3-8-14 1-31 16-39Z"/>
+  </g>
+
+  <g fill="#0a0a0a" opacity="0.9">
+    <circle cx="134" cy="86" r="3"/>
+    <circle cx="96" cy="104" r="4"/>
+    <circle cx="77" cy="138" r="4"/>
+    <circle cx="152" cy="152" r="4"/>
+    <circle cx="116" cy="145" r="3"/>
+  </g>
+</svg>
