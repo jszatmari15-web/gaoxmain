@@ -68,7 +68,7 @@
             <!-- Kereső sáv (Desktop) -->
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <div class="relative w-full">
-                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:border-[#4DA825]">
+                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825] focus:border-transparent">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-neutral-400 text-sm"></i>
                 </div>
             </div>
@@ -121,38 +121,22 @@
                             <i class="fa-solid fa-expand text-sm"></i>
                         </button>
 
-                        <!-- Fő Kép SVG (Magyar Zászló Pálcán) -->
-                        <div id="mainImageContainer" class="w-full h-full p-8 flex items-center justify-center transition-transform duration-300 transform group-hover:scale-105 cursor-pointer" onclick="toggleZoomModal()">
-                            <svg id="mainSVG" class="w-full h-full max-h-[320px] drop-shadow-xl" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <!-- Pálca -->
-                                <rect x="80" y="40" width="8" height="320" rx="4" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="1"/>
-                                <circle cx="84" cy="38" r="7" fill="#4DA825"/>
-                                <!-- Zászló lap (Piros, Fehér, Zöld) -->
-                                <g filter="drop-shadow(2px 4px 6px rgba(0,0,0,0.15))">
-                                    <!-- Piros sáv -->
-                                    <path d="M88 50 C 130 45, 170 55, 240 50 L 240 90 C 170 95, 130 85, 88 90 Z" fill="#CE2939"/>
-                                    <!-- Fehér sáv -->
-                                    <path d="M88 90 C 130 85, 170 95, 240 90 L 240 130 C 170 135, 130 125, 88 130 Z" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.5"/>
-                                    <!-- Zöld sáv -->
-                                    <path d="M88 130 C 130 125, 170 135, 240 130 L 240 170 C 170 175, 130 165, 88 170 Z" fill="#4DA825"/>
-                                </g>
-                            </svg>
-                        </div>
+                        <img id="mainProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png" alt="Kis magyar zászló" class="w-full h-full object-contain p-6 transition-transform duration-300 transform group-hover:scale-105 cursor-pointer" onclick="toggleZoomModal()">
                     </div>
 
                     <!-- Bélyegképek (Thumbnails) -->
                     <div class="grid grid-cols-4 gap-3">
-                        <button onclick="changeImage(0)" class="thumb-btn border-2 border-[#4DA825] bg-neutral-50 rounded-lg p-2 aspect-square flex items-center justify-center focus:outline-none transition">
-                            <i class="fa-solid fa-flag text-2xl text-[#4DA825]"></i>
+                        <button onclick="changeImage(0)" class="thumb-btn border-2 border-[#4DA825] bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition hover:border-[#4DA825] overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png" alt="Kis magyar zászló kép 1" class="w-full h-full object-cover rounded-md">
                         </button>
-                        <button onclick="changeImage(1)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-2 aspect-square flex items-center justify-center focus:outline-none transition">
-                            <i class="fa-solid fa-ruler-combined text-xl text-neutral-600"></i>
+                        <button onclick="changeImage(1)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_v7vguv7vguv7vguv.png" alt="Kis magyar zászló kép 2" class="w-full h-full object-cover rounded-md">
                         </button>
-                        <button onclick="changeImage(2)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-2 aspect-square flex items-center justify-center focus:outline-none transition">
-                            <i class="fa-solid fa-box-open text-xl text-neutral-600"></i>
+                        <button onclick="changeImage(2)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/ChatGPT%20Image%202026.%20j%C3%BAl.%2024.%2010_28_47.png" alt="Kis magyar zászló kép 3" class="w-full h-full object-cover rounded-md">
                         </button>
-                        <button onclick="changeImage(3)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-2 aspect-square flex items-center justify-center focus:outline-none transition">
-                            <i class="fa-solid fa-shield-halved text-xl text-neutral-600"></i>
+                        <button onclick="changeImage(3)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none transition overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_77x6u377x6u377x6.png" alt="Kis magyar zászló kép 4" class="w-full h-full object-cover rounded-md">
                         </button>
                     </div>
                 </div>
@@ -188,7 +172,7 @@
 
                         <!-- Rövid leírás -->
                         <p class="mt-4 text-gray-600 text-sm leading-relaxed">
-                            Kis méretű magyar zászló műanyag pálcával. Nagyon könnyű, kényelmes fogású kis darab, szuper választás meccsekre, felvonulásokra, nemzeti ünnepekre, de akár otthonra vagy a szobába dekorációnak is tökéletes.
+                            Kis méretű magyar zászló műanyag pálcával. Nagyon könnyű, kényelmes fogású kis darab, szuper választás meccsekre, felvonulásokra, nemzeti ünnepekre, de akár otthoni dekorációra is.
                         </p>
 
                         <!-- Főbb tulajdonságok gyorstáblázat -->
@@ -231,13 +215,13 @@
                         <div class="flex flex-col sm:flex-row gap-4 items-stretch">
                             <!-- Mennyiség állító -->
                             <div class="flex items-center border border-gray-300 rounded-lg bg-neutral-50 h-12 w-full sm:w-36 justify-between px-2">
-                                <button onclick="updateQuantity(-1)" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition font-bold text-lg">-</button>
+                                <button onclick="updateQuantity(-1)" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition font-bold text-lg">−</button>
                                 <span id="quantityDisplay" class="font-bold text-black text-base">1</span>
                                 <button onclick="updateQuantity(1)" class="w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition font-bold text-lg">+</button>
                             </div>
 
                             <!-- Kosárba teszem Gomb -->
-                            <button id="addToCartBtn" onclick="addToCart()" class="flex-1 bg-[#4DA825] hover:bg-[#3e881e] text-white font-bold h-12 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center space-x-2 active:scale-95">
+                            <button id="addToCartBtn" onclick="addToCart()" class="flex-1 bg-[#4DA825] hover:bg-[#3e881e] text-white font-bold h-12 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2">
                                 <i class="fa-solid fa-cart-plus text-lg"></i>
                                 <span>Kosárba teszem</span>
                             </button>
@@ -270,7 +254,7 @@
                 </h2>
                 <div class="mt-4 text-gray-600 text-sm leading-relaxed space-y-3">
                     <p>
-                        Eladó a képeken látható kis méretű magyar zászló műanyag pálcával! Nagyon könnyű, kényelmes fogású kis darab, szuper választás meccsekre, felvonulásokra, nemzeti ünnepekre, de akár otthonra vagy a szobába dekorációnak is tökéletes.
+                        Eladó a képeken látható kis méretű magyar zászló műanyag pálcával! Nagyon könnyű, kényelmes fogású kis darab, szuper választás meccsekre, felvonulásokra, nemzeti ünnepekre és lakásdekorációra egyaránt.
                     </p>
                     <p class="font-medium text-black">
                         Teljesen új, hibátlan állapotban van.
@@ -423,15 +407,7 @@
             </button>
             <h3 class="font-bold text-lg text-black mb-4">Kis magyar zászló - Nagyítás</h3>
             <div class="w-full h-80 flex items-center justify-center bg-neutral-50 rounded-xl p-4">
-                <svg class="w-full h-full" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="80" y="40" width="8" height="320" rx="4" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="1"/>
-                    <circle cx="84" cy="38" r="7" fill="#4DA825"/>
-                    <g filter="drop-shadow(2px 4px 6px rgba(0,0,0,0.15))">
-                        <path d="M88 50 C 130 45, 170 55, 240 50 L 240 90 C 170 95, 130 85, 88 90 Z" fill="#CE2939"/>
-                        <path d="M88 90 C 130 85, 170 95, 240 90 L 240 130 C 170 135, 130 125, 88 130 Z" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.5"/>
-                        <path d="M88 130 C 130 125, 170 135, 240 130 L 240 170 C 170 175, 130 165, 88 170 Z" fill="#4DA825"/>
-                    </g>
-                </svg>
+                <img id="zoomProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png" alt="Kis magyar zászló nagyított" class="w-full h-full object-contain rounded-lg">
             </div>
             <p class="text-xs text-gray-500 mt-4">14 x 21 cm poliészter zászló, 30 cm-es műanyag pálcával.</p>
         </div>
@@ -439,6 +415,13 @@
 
     <!-- JavaScript Interakciók -->
     <script>
+        const productImages = [
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_h0f0m6h0f0m6h0f0.png',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_v7vguv7vguv7vguv.png',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/ChatGPT%20Image%202026.%20j%C3%BAl.%2024.%2010_28_47.png',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Gemini_Generated_Image_77x6u377x6u377x6.png'
+        ];
+
         let quantity = 1;
         const itemPrice = 600;
         let cartCount = 0;
@@ -484,6 +467,10 @@
                     btn.classList.add('border-gray-200');
                 }
             });
+
+            const imageSrc = productImages[index] || productImages[0];
+            document.getElementById('mainProductImage').src = imageSrc;
+            document.getElementById('zoomProductImage').src = imageSrc;
         }
 
         // Modal Zoom megnyitása/bezárása
