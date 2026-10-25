@@ -4,22 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balvi Antik Stílusú Mágneses Földgömb - Webshop</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        amber: {
-                            850: '#6d3c14',
-                            900: '#422006',
-                        },
-                        copper: '#B87333',
+                        brand: {
+                            DEFAULT: '#4DA825',
+                            hover: '#3e881e',
+                            light: '#f0f9eb',
+                            dark: '#111111'
+                        }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -28,37 +24,38 @@
             }
         }
     </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Ikonok -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        .image-zoom-container {
-            overflow: hidden;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #111111;
         }
-        .image-zoom-container img {
-            transition: transform 0.4s ease-out;
         }
-        .image-zoom-container:hover img {
-            transform: scale(1.15);
+
+        .brand-wordmark {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1;
         }
-        .badge-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .7; }
-        }
-        /* Custom Scrollbar for smooth modern UI */
+
+        /* Custom smooth scroll bar */
         ::-webkit-scrollbar {
             width: 8px;
-            height: 8px;
         }
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
         ::-webkit-scrollbar-thumb {
-            background: #d1d5db;
+            background: #cbd5e1;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af;
+            background: #94a3b8;
         }
     </style>
 </head>
