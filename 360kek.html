@@ -4,25 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balvi 360° Kék Földgömb - Automatán Forgó Dísz - Webshop</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        ocean: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
+                        brand: {
+                            DEFAULT: '#4DA825',
+                            hover: '#3e881e',
+                            light: '#f0f9eb',
+                            dark: '#111111'
                         }
                     },
                     fontFamily: {
@@ -32,36 +24,31 @@
             }
         }
     </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Ikonok -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        .image-zoom-container {
-            overflow: hidden;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #111111;
         }
-        .image-zoom-container img {
-            transition: transform 0.4s ease-out;
-        }
-        .image-zoom-container:hover img {
-            transform: scale(1.12);
         }
 
-        /* 360 Rotation Spin Visualizer */
-        @keyframes slowSpin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .animate-slow-spin {
-            animation: slowSpin 16s linear infinite;
-        }
-        .animate-slow-spin-paused {
-            animation-play-state: paused;
+        .brand-wordmark {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1;
         }
 
-        /* Custom Scrollbar */
+        /* Custom smooth scroll bar */
         ::-webkit-scrollbar {
             width: 8px;
-            height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #f1f1f1;
         }
         ::-webkit-scrollbar-thumb {
             background: #cbd5e1;
