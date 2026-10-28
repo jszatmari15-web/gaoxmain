@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magyar zászló - Termékoldal</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#4DA825',
+                            hover: '#3e881e',
+                            light: '#f0f9eb',
+                            dark: '#111111'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #111111;
+        }
+        .brand-wordmark {
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Header -->
+    <header class="bg-black text-white sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center min-w-0">
+                <div class="brand-mark rounded-full p-1.5 flex items-center justify-center shrink-0">
+                    <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png" alt="GAOX logo" class="h-9 w-9">
+                </div>
+                <div class="ml-3 flex items-center">
+                    <span class="brand-wordmark font-black text-lg sm:text-2xl text-white">GAOX</span>
+                </div>
+            </div>
+            <div class="hidden md:flex flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825]/50">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-neutral-400 text-sm"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Morzsamenü -->
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 w-full">
+        <ol class="flex items-center space-x-2 text-xs sm:text-sm text-gray-500">
+            <li><a href="#" class="hover:text-black transition">Kezdőoldal</a></li>
+            <li><i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i></li>
+            <li><a href="#" class="hover:text-black transition">Hobbik és gyűjtemények</a></li>
+            <li><i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i></li>
+            <li class="font-medium text-black truncate">Magyar zászló</li>
+        </ol>
+    </nav>
+
+    <!-- Fő Termék Szekció -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex-grow w-full">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            
+            <!-- Eladva sáv -->
+            <div class="bg-[#008080] text-white font-semibold text-sm py-2.5 px-6">
+                Eladva
+            </div>
+
+            <div class="p-4 sm:p-6 lg:p-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                    
+                    <!-- BAL OLDAL: Képek -->
+                    <div class="lg:col-span-5 flex flex-col space-y-4">
+                        <div class="relative bg-neutral-50 rounded-xl border border-gray-200 overflow-hidden group aspect-square flex items-center justify-center">
+                            <div class="w-full h-full bg-gradient-to-b from-red-600 via-white to-green-700 flex items-center justify-center font-bold text-gray-700 text-lg shadow-inner">
+                                90 × 150 cm
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JOBB OLDAL: Infók -->
+                    <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h1 class="text-2xl sm:text-3xl font-bold text-black tracking-tight">Magyar zászló</h1>
+                                    <p class="text-xs text-gray-500 mt-1">Feltöltve: 2 héttel ezelőtt</p>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 pb-4 border-b border-gray-100 flex items-baseline justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-gray-400 line-through">3 500 Ft</span>
+                                    <span class="text-3xl sm:text-4xl font-extrabold text-[#4DA825]">3 955 Ft</span>
+                                    <span class="text-xs text-teal-700 mt-1"><i class="fa-regular fa-shield-check"></i> a következővel: (ár a vevő számára)</span>
+                                </div>
+                            </div>
+
+                            <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                                Nagyméretű magyar zászló (90×150 cm). Tartós poliészter anyaga miatt kiválóan alkalmas egyaránt kültéri és beltéri használatra is.
+                            </p>
+
+                            <div class="mt-6 grid grid-cols-3 gap-3">
+                                <div class="bg-neutral-50 p-3 rounded-lg border border-neutral-100">
+                                    <span class="block text-xs text-gray-500 uppercase font-semibold">Állapot</span>
+                                    <span class="text-sm font-medium text-black">Új, címkék nélkül</span>
+                                </div>
+                                <div class="bg-neutral-50 p-3 rounded-lg border border-neutral-100">
+                                    <span class="block text-xs text-gray-500 uppercase font-semibold">Anyag</span>
+                                    <span class="text-sm font-medium text-black">Poliészter</span>
+                                </div>
+                                <div class="bg-neutral-50 p-3 rounded-lg border border-neutral-100">
+                                    <span class="block text-xs text-gray-500 uppercase font-semibold">Szín</span>
+                                    <span class="text-sm font-medium text-black">Piros, Fehér, Zöld</span>
+                                </div>
+                            </div>
+
+                            <!-- Eladó adatai -->
+                            <div class="mt-6 p-4 border border-gray-200 rounded-xl flex items-center justify-between hover:bg-neutral-50 cursor-pointer transition">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center font-bold text-xs text-neutral-700">
+                                        MR
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-black">mrtechguru</h4>
+                                        <div class="flex items-center text-xs text-amber-500 space-x-1">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <span class="text-gray-500 ml-1">(18)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <i class="fa-solid fa-chevron-right text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Szállítási információ -->
+                        <div class="pt-4 border-t border-gray-100 flex justify-between text-xs text-gray-500">
+                            <span>Szállítás</span>
+                            <span class="font-semibold text-black">ettől: 799 Ft</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RÉSZLETES ADATOK TÁBLÁZAT (Az Előresorolás helyett) -->
+        <div class="mt-8 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
+            <h2 class="text-lg sm:text-xl font-bold text-black border-b border-gray-100 pb-4 flex items-center gap-2">
+                <i class="fa-solid fa-circle-info text-[#4DA825]"></i> Részletes Adatok
+            </h2>
+            
+            <div class="mt-6 border border-gray-100 rounded-xl overflow-hidden">
+                <div class="bg-neutral-50/70 px-4 py-2.5 font-semibold text-xs text-gray-400 uppercase tracking-wider">
+                    TERMÉKINFORMÁCIÓK
+                </div>
+                <div class="divide-y divide-gray-100 text-sm">
+                    <div class="grid grid-cols-3 p-4 hover:bg-neutral-50/50">
+                        <span class="text-gray-500">Állapot</span>
+                        <span class="col-span-2 font-medium text-black">Új, címkék nélkül</span>
+                    </div>
+                    <div class="grid grid-cols-3 p-4 hover:bg-neutral-50/50">
+                        <span class="text-gray-500">Méret</span>
+                        <span class="col-span-2 font-medium text-black">90 × 150 cm</span>
+                    </div>
+                    <div class="grid grid-cols-3 p-4 hover:bg-neutral-50/50">
+                        <span class="text-gray-500">Anyag</span>
+                        <span class="col-span-2 font-medium text-black">Poliészter</span>
+                    </div>
+                    <div class="grid grid-cols-3 p-4 hover:bg-neutral-50/50">
+                        <span class="text-gray-500">Szín</span>
+                        <span class="col-span-2 font-medium text-black">Piros / Fehér / Zöld</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white mt-16 border-t border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center text-sm text-neutral-400">
+            <div class="flex items-center space-x-3">
+                <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png" alt="GAOX logo" class="h-8 w-8">
+                <span class="brand-wordmark font-black text-xl text-white">GAOX</span>
+            </div>
+            <span>&copy; 2026 Minden jog fenntartva.</span>
+        </div>
+    </footer>
+</body>
+</html>
