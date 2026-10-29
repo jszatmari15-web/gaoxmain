@@ -66,7 +66,7 @@
             </div>
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <div class="relative w-full">
-                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825]/50">
+                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825] focus:border-transparent">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-neutral-400 text-sm"></i>
                 </div>
             </div>
@@ -95,7 +95,22 @@
                         <div class="absolute top-3 left-3 z-10">
                             <span class="bg-black text-white text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm">Raktáron</span>
                         </div>
-                        <img id="mainProductImage" src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80" alt="Világtérkép 59x80 cm" class="w-full h-full object-cover transition duration-300 group-hover:scale-105">
+                        <button onclick="toggleZoomModal()" class="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow transition">
+                            <i class="fa-solid fa-expand text-sm"></i>
+                        </button>
+                        <img id="mainProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Had3716b162224e67bf232d4571d0d93au.jpg" alt="Világtérkép 59x80 cm" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3">
+                        <button onclick="changeImage(0)" class="thumb-btn border-2 border-[#4DA825] bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Had3716b162224e67bf232d4571d0d93au.jpg" alt="Kép 1" class="w-full h-full object-cover rounded-md">
+                        </button>
+                        <button onclick="changeImage(1)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/rn-image_picker_lib_temp_3f761360-dd55-47f9-88f0-9745e4457658%20(1).webp" alt="Kép 2" class="w-full h-full object-cover rounded-md">
+                        </button>
+                        <button onclick="changeImage(2)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/docs/1000001670.png" alt="Kép 3" class="w-full h-full object-cover rounded-md">
+                        </button>
                     </div>
                 </div>
 
@@ -124,7 +139,7 @@
                         </div>
 
                         <p class="mt-4 text-gray-600 text-sm leading-relaxed">
-                            Eladó egy stílusos lekaparható világtérkép fehér feliratokkal! Tökéletes ajándék utazók, kalandorok számára. A térkép segítségével könnyen nyomon követhetőek az utazásaink. Az egyszerű doboz könnyen dekorálható.
+                            Eladó egy stílusos lekaparható világtérkép fehér feliratokkal! Tökéletes ajándék utazók, kalandorok számára. A térkép segítségével könnyen nyomon követhető a világ különböző részei, és remek dekorációs elem otthon, irodában vagy szobában.
                         </p>
 
                         <div class="mt-6 grid grid-cols-3 gap-3">
@@ -159,7 +174,7 @@
             </div>
         </div>
 
-        <!-- RÉSZLETES ADATOK TÁBLÁZAT (Az Előresorolás helyett) -->
+        <!-- RÉSZLETES ADATOK TÁBLÁZAT -->
         <div class="mt-8 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
             <h2 class="text-lg sm:text-xl font-bold text-black border-b border-gray-100 pb-4 flex items-center gap-2">
                 <i class="fa-solid fa-circle-info text-[#4DA825]"></i> Részletes Adatok
@@ -202,5 +217,46 @@
              <a href="kapcsolat_oldal.html" class="hover:text-white transition">Kapcsolat</a>
         </div>
     </footer>
+
+    <div id="zoomModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl">
+            <button onclick="toggleZoomModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-bold text-lg text-black mb-4">Világtérkép 59×80 cm - Nagyítás</h3>
+            <div class="w-full h-80 flex items-center justify-center bg-neutral-50 rounded-xl p-4">
+                <img id="zoomProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Had3716b162224e67bf232d4571d0d93au.jpg" alt="Nagyított kép" class="max-w-full max-h-full object-contain rounded-lg">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const productImages = [
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Had3716b162224e67bf232d4571d0d93au.jpg',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/rn-image_picker_lib_temp_3f761360-dd55-47f9-88f0-9745e4457658%20(1).webp',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/docs/1000001670.png'
+        ];
+
+        function changeImage(index) {
+            const buttons = document.querySelectorAll('.thumb-btn');
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.remove('border-gray-200');
+                } else {
+                    btn.classList.remove('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.add('border-gray-200');
+                }
+            });
+
+            const img = productImages[index];
+            document.getElementById('mainProductImage').src = img;
+            document.getElementById('zoomProductImage').src = img;
+        }
+
+        function toggleZoomModal() {
+            document.getElementById('zoomModal').classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
