@@ -345,24 +345,25 @@
         </a>
       </div>
     </div>
-    <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-links">
-        <a href="#" onclick="filterCategory('all', event)">Kezdőlap</a>
-        <a href="#" onclick="filterCategory('Zászló', event)">Zászlók</a>
-        <a href="#" onclick="filterCategory('Térkép', event)">Térképek</a>
-        <a href="#" onclick="filterCategory('Földgömb', event)">Földgömbök</a>
-        <a href="kapcsolat_oldal.html">Kapcsolat</a>
-      </div>
-      <div class="footer-contact-info">
-        Kapcsolat / E-mail: <a href="mailto:info@gaox.hu">info@gaox.hu</a>
-      </div>
-      <div class="footer-copy">
-        &copy; 2026 GAOX. Minden jog fenntartva.
-      </div>
-    </div>
-  </footer>
   </main>
+
+    <footer class="bg-black text-white mt-16 border-t border-neutral-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
+                <div class="flex items-center justify-center md:justify-start space-x-3">
+                    <div class="brand-mark rounded-full p-1.5 flex items-center justify-center shrink-0">
+                        <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png" alt="GAOX logo" class="h-8 w-8">
+                    </div>
+                    <span class="brand-wordmark font-black text-xl sm:text-2xl text-white">GAOX</span>
+                    <span class="hidden sm:inline">&copy; 2026 Minden jog fenntartva.</span>
+                    <span class="brand-wordmark font-black text-xl sm:text-2xl text-white">info@gaox.hu</span>
+                </div>
+                <div class="flex space-x-6 text-xs">
+                    <a href="#" class="hover:text-white transition">Kapcsolat</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
   <script>
     function filterProducts() {
