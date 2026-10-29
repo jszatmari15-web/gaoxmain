@@ -346,7 +346,23 @@
       </div>
     </div>
   </main>
-
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="#" onclick="filterCategory('all', event)">Kezdőlap</a>
+        <a href="#" onclick="filterCategory('Zászló', event)">Zászlók</a>
+        <a href="#" onclick="filterCategory('Térkép', event)">Térképek</a>
+        <a href="#" onclick="filterCategory('Földgömb', event)">Földgömbök</a>
+        <a href="kapcsolat_oldal.html">Kapcsolat</a>
+      </div>
+      <div class="footer-contact-info">
+        Kapcsolat / E-mail: <a href="mailto:info@gaox.hu">info@gaox.hu</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 GAOX. Minden jog fenntartva.
+      </div>
+    </div>
+  </footer>
   <script>
     function filterProducts() {
       const input = document.getElementById('searchInput').value.toLowerCase();
