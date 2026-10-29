@@ -27,7 +27,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -43,7 +43,6 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased">
 
-    <!-- Header -->
     <header class="bg-black text-white sticky top-0 z-40 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center min-w-0">
@@ -56,52 +55,52 @@
             </div>
             <div class="hidden md:flex flex-1 max-w-md mx-8">
                 <div class="relative w-full">
-                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825]/50">
+                    <input type="text" placeholder="Keresés a termékek között..." class="w-full bg-neutral-900 border border-neutral-700 text-sm text-white placeholder-neutral-400 rounded-full py-2.5 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-[#4DA825]">
                     <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-neutral-400 text-sm"></i>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Morzsamenü -->
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 w-full">
         <ol class="flex items-center space-x-2 text-xs sm:text-sm text-gray-500">
             <li><a href="#" class="hover:text-black transition">Kezdőoldal</a></li>
-            <li><i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i></li>
-            <li><a href="#" class="hover:text-black transition">Hobbik és gyűjtemények</a></li>
             <li><i class="fa-solid fa-chevron-right text-[10px] text-gray-400"></i></li>
             <li class="font-medium text-black truncate">Magyar zászló</li>
         </ol>
     </nav>
 
-    <!-- Fő Termék Szekció -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex-grow w-full">
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            
-            <!-- Eladva sáv -->
-            <div class="bg-[#008080] text-white font-semibold text-sm py-2.5 px-6">
-                Eladva
-            </div>
-
             <div class="p-4 sm:p-6 lg:p-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-                    
-                    <!-- BAL OLDAL: Képek -->
+
                     <div class="lg:col-span-5 flex flex-col space-y-4">
                         <div class="relative bg-neutral-50 rounded-xl border border-gray-200 overflow-hidden group aspect-square flex items-center justify-center">
-                            <div class="w-full h-full bg-gradient-to-b from-red-600 via-white to-green-700 flex items-center justify-center font-bold text-gray-700 text-lg shadow-inner">
-                                90 × 150 cm
-                            </div>
+                            <button onclick="toggleZoomModal()" class="absolute top-3 right-3 z-10 bg-white/80 hover:bg-white text-black p-2 rounded-full shadow transition">
+                                <i class="fa-solid fa-expand text-sm"></i>
+                            </button>
+                            <img id="mainProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Polish-20260724_093459164.png" alt="Magyar zászló fő kép" class="w-full h-full object-cover rounded-lg">
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3">
+                            <button onclick="changeImage(0)" class="thumb-btn border-2 border-[#4DA825] bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                                <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Polish-20260724_093459164.png" alt="Kép 1" class="w-full h-full object-cover rounded-md">
+                            </button>
+                            <button onclick="changeImage(1)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                                <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/ChatGPT_Image_2026._jul._24._10_28_47.webp" alt="Kép 2" class="w-full h-full object-cover rounded-md">
+                            </button>
+                            <button onclick="changeImage(2)" class="thumb-btn border border-gray-200 hover:border-gray-400 bg-neutral-50 rounded-lg p-1 aspect-square flex items-center justify-center focus:outline-none">
+                                <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/56E23FE955368A71B264F2D4CCCFF210.jpg" alt="Kép 3" class="w-full h-full object-cover rounded-md">
+                            </button>
                         </div>
                     </div>
 
-                    <!-- JOBB OLDAL: Infók -->
                     <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
                         <div>
                             <div class="flex justify-between items-start">
                                 <div>
                                     <h1 class="text-2xl sm:text-3xl font-bold text-black tracking-tight">Magyar zászló</h1>
-                                    <p class="text-xs text-gray-500 mt-1">Feltöltve: 2 héttel ezelőtt</p>
                                 </div>
                             </div>
 
@@ -132,7 +131,6 @@
                                 </div>
                             </div>
 
-                            <!-- Eladó adatai -->
                             <div class="mt-6 p-4 border border-gray-200 rounded-xl flex items-center justify-between hover:bg-neutral-50 cursor-pointer transition">
                                 <div class="flex items-center space-x-3">
                                     <div class="w-10 h-10 rounded-full bg-neutral-200 flex items-center justify-center font-bold text-xs text-neutral-700">
@@ -154,7 +152,6 @@
                             </div>
                         </div>
 
-                        <!-- Szállítási információ -->
                         <div class="pt-4 border-t border-gray-100 flex justify-between text-xs text-gray-500">
                             <span>Szállítás</span>
                             <span class="font-semibold text-black">ettől: 799 Ft</span>
@@ -164,12 +161,11 @@
             </div>
         </div>
 
-        <!-- RÉSZLETES ADATOK TÁBLÁZAT (Az Előresorolás helyett) -->
         <div class="mt-8 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
             <h2 class="text-lg sm:text-xl font-bold text-black border-b border-gray-100 pb-4 flex items-center gap-2">
                 <i class="fa-solid fa-circle-info text-[#4DA825]"></i> Részletes Adatok
             </h2>
-            
+
             <div class="mt-6 border border-gray-100 rounded-xl overflow-hidden">
                 <div class="bg-neutral-50/70 px-4 py-2.5 font-semibold text-xs text-gray-400 uppercase tracking-wider">
                     TERMÉKINFORMÁCIÓK
@@ -196,7 +192,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-black text-white mt-16 border-t border-neutral-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex justify-between items-center text-sm text-neutral-400">
             <div class="flex items-center space-x-3">
@@ -204,8 +199,48 @@
                 <span class="brand-wordmark font-black text-xl text-white">GAOX</span>
             </div>
             <span>&copy; 2026 Minden jog fenntartva.</span>
-             <a href="kapcsolat_oldal.html" class="hover:text-white transition">Kapcsolat</a>
+            <a href="kapcsolat_oldal.html" class="hover:text-white transition">Kapcsolat</a>
         </div>
     </footer>
+
+    <div id="zoomModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-2xl max-w-lg w-full p-6 text-center shadow-2xl">
+            <button onclick="toggleZoomModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-bold text-lg text-black mb-4">Magyar zászló - Nagyítás</h3>
+            <div class="w-full h-80 flex items-center justify-center bg-neutral-50 rounded-xl p-4">
+                <img id="zoomProductImage" src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Polish-20260724_093459164.png" alt="Nagyított kép" class="max-w-full max-h-full object-contain rounded-lg">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const productImages = [
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/Polish-20260724_093459164.png',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/ChatGPT_Image_2026._jul._24._10_28_47.webp',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/56E23FE955368A71B264F2D4CCCFF210.jpg'
+        ];
+
+        function changeImage(index) {
+            const buttons = document.querySelectorAll('.thumb-btn');
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.remove('border-gray-200');
+                } else {
+                    btn.classList.remove('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.add('border-gray-200');
+                }
+            });
+            const img = productImages[index];
+            document.getElementById('mainProductImage').src = img;
+            document.getElementById('zoomProductImage').src = img;
+        }
+
+        function toggleZoomModal() {
+            document.getElementById('zoomModal').classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
