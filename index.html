@@ -230,6 +230,82 @@
       z-index: 1;
     }
 
+    .site-footer {
+      background: #000000;
+      color: #ffffff;
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .site-footer-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .site-footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: #000;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.22);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .brand-text {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+
+    .brand-wordmark {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+    }
+
+    .brand-copy,
+    .brand-email {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .footer-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
     @media (max-width: 768px) {
       .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -237,6 +313,15 @@
 
       .product-card {
         width: 100%;
+      }
+
+      .site-footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-link {
+        align-self: flex-end;
       }
     }
   </style>
@@ -261,7 +346,7 @@
 
       <div class="header-icons">
         <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M18 6h-2.58C15.09 3.69 13.68 2 12 2S8.91 3.69 8.58 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.03 0 1.9.82 2.15 2H9.85c.25-.18.82-2 2.15-2zm6 16H6V8h12v12zm-6-9.5c-1.38 0-2.5 1.12-2.5 2.5s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5-1.12-2.5-2.5-2.5z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M18 6h-2.58C15.09 3.69 13.68 2 12 2S8.91 3.69 8.58 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.03 0 1.9.82 2.15 2H9.85c.25-.18.3-.44 1.7-2zM6 8h12v12H6V8zm6 2c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
       </div>
     </div>
   </header>
@@ -347,23 +432,21 @@
     </div>
   </main>
 
-    <footer class="bg-black text-white mt-16 border-t border-neutral-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-neutral-400">
-                <div class="flex items-center justify-center md:justify-start space-x-3">
-                    <div class="brand-mark rounded-full p-1.5 flex items-center justify-center shrink-0">
-                        <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png" alt="GAOX logo" class="h-8 w-8">
-                    </div>
-                    <span class="brand-wordmark font-black text-xl sm:text-2xl text-white">GAOX</span>
-                    <span class="hidden sm:inline">&copy; 2026 Minden jog fenntartva.</span>
-                    <span class="brand-wordmark font-black text-xl sm:text-2xl text-white">info@gaox.hu</span>
-                </div>
-                <div class="flex space-x-6 text-xs">
-                    <a href="#" class="hover:text-white transition">Kapcsolat</a>
-                </div>
-            </div>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-brand">
+        <div class="brand-mark">
+          <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/output-smallpngtools%20%281%29.png" alt="GAOX logo">
         </div>
-    </footer>
+        <div class="brand-text">
+          <span class="brand-wordmark">GAOX</span>
+          <span class="brand-copy">© 2026 Minden jog fenntartva.</span>
+          <span class="brand-email">info@gaox.hu</span>
+        </div>
+      </div>
+      <a href="#" class="footer-link">Kapcsolat</a>
+    </div>
+  </footer>
 
   <script>
     function filterProducts() {
