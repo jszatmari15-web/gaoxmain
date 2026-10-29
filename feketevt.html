@@ -202,5 +202,33 @@
              <a href="kapcsolat_oldal.html" class="hover:text-white transition">Kapcsolat</a>
         </div>
     </footer>
+
+     <script>
+        const productImages = [
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/rn-image_picker_lib_temp_e1e5742a-105f-4789-a78b-0af74bc4d90e.webp',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/rn-image_picker_lib_temp_1032f659-e83f-44c1-8eeb-4628bdbdb422.webp',
+            'https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/1000001669.png'
+        ];
+
+        function changeImage(index) {
+            const buttons = document.querySelectorAll('.thumb-btn');
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.remove('border-gray-200');
+                } else {
+                    btn.classList.remove('border-[#4DA825]', 'ring-1', 'ring-[#4DA825]/50');
+                    btn.classList.add('border-gray-200');
+                }
+            });
+            const img = productImages[index];
+            document.getElementById('mainProductImage').src = img;
+            document.getElementById('zoomProductImage').src = img;
+        }
+
+        function toggleZoomModal() {
+            document.getElementById('zoomModal').classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
