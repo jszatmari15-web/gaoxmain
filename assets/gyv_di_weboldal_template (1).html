@@ -85,8 +85,8 @@
                     </div>
 
                     <a href="#velemenyek" class="hover:text-amber-400 transition-colors py-2">Vélemények</a>
-                    <div id="content"></div>
-                    <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-amber-600/20">
+                    <a href="hasznos_linkek.html" class="hover:text-amber-400 transition-colors py-2">Hasznos linkek</a>
+                    <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-xl">
                         Kapcsolat
                     </a>
                 </nav>
@@ -105,7 +105,7 @@
     <a href="#fooldal" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
     <a href="#bemutatkozas" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Rólam (Bemutatkozás)</a>
     
-    <!-- Szakterületek lenyíló (ha a többi részt el akarod tüntetni, ezt a blokkot egyszerűen törölheted) -->
+    <!-- Szakterületek lenyíló -->
     <div>
         <button id="mobile-dropdown-btn" class="w-full text-left py-2 text-gray-200 hover:text-amber-400 font-medium text-sm flex justify-between items-center">
             <span>Szakterületek</span>
@@ -122,20 +122,7 @@
     </div>
 
     <a href="#velemenyek" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Vélemények</a>
-    
-    <!-- Hasznos linkek gomb / navigációs elem, ami meghívja a fetchet vagy a tartalmat -->
-    <a href="#hasznos-linkek" id="hasznos-linkek-btn" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Hasznos linkek</a>
-    
-    <script>
-    // A fetch most már tisztán betölti a tartalmat a #content elembe anélkül, hogy a menü struktúráját szétbarmolná
-    fetch("https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/hasznos_linkek.html")
-        .then(r => r.text())
-        .then(html => {
-            document.getElementById("content").innerHTML = html;
-        })
-        .catch(err => console.error("Hiba a hasznos linkek betöltésekor:", err));
-</script>
-
+    <a href="hasznos_linkek.html" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Hasznos linkek</a>
     <a href="#kapcsolat" class="block py-2 text-amber-400 font-semibold text-sm">Kapcsolat</a>
 </div>
 
@@ -160,10 +147,10 @@
                         Magas színvonalú jogi tanácsadás és hatékony érdekérvényesítés magánszemélyek és vállalkozások részére a legközetlenebb ügyfélközpontúsággal.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white text-center font-semibold px-8 py-4 rounded shadow-xl transition-all border border-amber-400/40 tracking-wide uppercase text-xs sm:text-sm">
+                        <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white text-center font-semibold px-8 py-4 rounded shadow-xl transition-all border border-amber-400/40 tracking-[0.12em] uppercase text-xs">
                             Konzultáció Kérése
                         </a>
-                        <a href="#bemutatkozas" class="border border-slate-700 hover:border-amber-400 text-gray-200 hover:text-amber-400 text-center font-semibold px-8 py-4 rounded transition-all tracking-wide uppercase text-xs sm:text-sm bg-slate-900/60 backdrop-blur-sm">
+                        <a href="#bemutatkozas" class="border border-slate-700 hover:border-amber-400 text-gray-200 hover:text-amber-400 text-center font-semibold px-8 py-4 rounded transition-all tracking-[0.12em] uppercase text-xs">
                             Rólam bővebben
                         </a>
                     </div>
@@ -171,21 +158,16 @@
             </div>
         </section>
 
-        <!-- BEMUTATKOZÁS / RÓLAM SECTION (Lecsökkentett, arányos képmérettel) -->
+        <!-- BEMUTATKOZÁS / RÓLAM SECTION -->
         <section id="bemutatkozas" class="py-20 bg-white relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    
-                    <!-- Lecsökkentett méretű ügyvéd portré kép -->
                     <div class="lg:col-span-4 flex justify-center">
                         <div class="relative max-w-xs w-full">
                             <div class="relative z-10 rounded-lg overflow-hidden shadow-lg border-2 border-slate-100">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&h=750&q=80" alt="Dr. Minta Péter ügyvéd" class="w-full h-80 object-cover object-top rounded">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&h=750&q=80" alt="Dr. Minta Péter ügyvéd" class="w-full h-80 object-cover">
                             </div>
-                            <!-- Dekoratív háttér keret -->
                             <div class="absolute -bottom-3 -right-3 w-full h-full border border-amber-500/30 rounded-lg z-0 hidden sm:block"></div>
-                            
-                            <!-- Tapasztalati jelvény -->
                             <div class="absolute -bottom-4 -left-4 z-20 bg-slate-900 text-white px-3.5 py-2.5 rounded-md shadow-md border border-amber-500/30">
                                 <p class="text-lg font-bold font-serif-legal text-amber-400 leading-none">15+ Év</p>
                                 <p class="text-[10px] text-gray-300 mt-0.5">Tapasztalat</p>
@@ -193,20 +175,18 @@
                         </div>
                     </div>
 
-                    <!-- Bemutatkozó Szöveg és Részletek -->
                     <div class="lg:col-span-8">
                         <span class="text-amber-600 font-semibold tracking-widest uppercase text-xs block mb-2">Köszöntöm az oldalamon!</span>
                         <h2 class="text-3xl sm:text-4xl font-bold font-serif-legal text-slate-900 mb-4">Dr. Minta Péter <span class="text-amber-600 text-xl font-normal block sm:inline">| Ügyvéd</span></h2>
                         <div class="w-16 h-1 bg-amber-500 mb-6"></div>
                         
                         <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
-                            Pályafutásomat az Eötvös Loránd Tudományegyetem Állam- és Jogtudományi Karának elvégzését követően kezdtem. Több mint másfél évtizede képviselem ügyfeleimet sikerrel polgári, cégjogi és büntetőjogi eljárásokban.
+                            Pályafutásomat az Eötvös Loránd Tudományegyetem Állam- és Jogtudományi Karának elvégzését követően kezdtem. Több mint másfél évtizede képviselem ügyfeleimet...
                         </p>
                         <p class="text-gray-600 text-sm leading-relaxed mb-6">
-                            Hitem szerint a jó ügyvédi munka alapja a precizitás, a diszkréció és a személyre szabott figyelem. Célom, hogy jogi problémáira ne csupán törvényi választ, hanem a leghatékonyabb gyakorlati megoldást biztosítsam.
+                            Hitem szerint a jó ügyvédi munka alapja a precizitás, a diszkréció és a személyre szabott figyelem. Célom, hogy jogi problémáira ne csupán törvényi választ, hanem reális, gyakorlati megoldást kínáljak.
                         </p>
 
-                        <!-- Értékek Grid -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                             <div class="flex items-start space-x-3">
                                 <i class="fa-solid fa-check-double text-amber-600 text-sm mt-1"></i>
@@ -241,14 +221,11 @@
                             </div>
                         </div>
 
-                        <!-- Aláírás -->
                         <div class="border-t border-gray-100 pt-5 flex items-center justify-between">
-        
                             <a href="#kapcsolat" class="text-amber-600 hover:text-amber-700 font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5">
                                 Időpontfoglalás <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -267,7 +244,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- 1. Ingatlanjog -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
                         <div class="relative h-52 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Ingatlanjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -280,11 +256,10 @@
                             <p class="text-gray-600 text-sm leading-relaxed mb-4">
                                 Adásvételi, ajándékozási és bérleti szerződések szerkesztése, földhivatali ügyintézés, társasházi jogi képviselet.
                             </p>
-                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <!-- 2. Cégjog & Gazdasági Jog -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
                         <div class="relative h-52 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Cégjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -297,11 +272,10 @@
                             <p class="text-gray-600 text-sm leading-relaxed mb-4">
                                 Cégalapítás, cégmódosítás, átalakulások lebonyolítása, kereskedelmi szerződések előkészítése és átvilágítása.
                             </p>
-                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <!-- 3. Családjog -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
                         <div class="relative h-52 overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="Családjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -314,11 +288,10 @@
                             <p class="text-gray-600 text-sm leading-relaxed mb-4">
                                 Házassági bontóperek, vagyonmegosztás, gyermektartás és szülői felügyelettel kapcsolatos empátiás jogi képviselet.
                             </p>
-                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <!-- 4. Büntetőjog -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
                         <div class="relative h-52 overflow-hidden">
                             <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/pexels-cottonbro-8371732.jpg" alt="Büntetőjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -331,11 +304,10 @@
                             <p class="text-gray-600 text-sm leading-relaxed mb-4">
                                 Hatékony védelem ellátása a nyomozati szakasztól a bírósági eljárás végéig, sértetti és tanú képviselet.
                             </p>
-                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <!-- 5. Munkajog -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
                         <div class="relative h-52 overflow-hidden">
                             <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/pexels-sergey-sergeev-2153675005-32845687.jpg" alt="Munkajog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -348,11 +320,10 @@
                             <p class="text-gray-600 text-sm leading-relaxed mb-4">
                                 Munkaszerződések felülvizsgálata, felmondások jogossága, munkaügyi peres és peren kívüli eljárások.
                             </p>
-                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
 
-                    <!-- 6. Kártérítési Jog -->
                     <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
                         <div class="relative h-52 overflow-hidden">
                             <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/pexels-valentin-ivantsov-2154772556-35317578.jpg" alt="Kártérítési Jog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -365,14 +336,14 @@
                             <p class="text-gray-600 text-sm leading-relaxed mb-4">
                                 Baleseti és szerződésszegési kártérítési igények érvényesítése biztosítókkal és károkozókkal szemben.
                             </p>
-                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                            <a href="#kapcsolat" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- VÉLEMÉNYEK SECTION (Google Maps Reviews) -->
+        <!-- VÉLEMÉNYEK SECTION -->
         <section id="velemenyek" class="py-24 bg-white border-t border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
@@ -382,7 +353,6 @@
                     <p class="text-gray-600 mt-4 text-sm sm:text-base">Valós értékelések a Google Maps felületéről</p>
                 </div>
 
-                <!-- Google Rating Összegző -->
                 <div class="bg-slate-900 text-white p-6 rounded-lg shadow-xl max-w-md mx-auto mb-12 flex items-center justify-between border border-amber-500/30">
                     <div class="flex items-center space-x-4">
                         <i class="fa-brands fa-google text-4xl text-amber-400"></i>
@@ -397,21 +367,17 @@
                             </div>
                         </div>
                     </div>
-                    <a href="https://www.google.com/maps/place/%C3%9Cgyv%C3%A9d+Dr.+Soproni+P%C3%A9ter/@47.3563754,19.0692656,14z/data=!4m8!3m7!1s0x4741e979bae344f7:0x4f86333ebe149cb3!8m2!3d47.3545148!4d19.0924935!9m1!1b1!16s%2Fg%2F11t51gk_q3?entry=ttu&g_ep=EgoyMDI2MTAyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="text-xs bg-amber-600 hover:bg-amber-500 text-white font-semibold px-4 py-2.5 rounded transition-colors uppercase tracking-wider">
+                    <a href="https://www.google.com/maps/place/%C3%9Cgyv%C3%A9d+Dr.+Soproni+P%C3%A9ter/@47.3563754,19.0692656,14z/data=!4m8!3m7!1s0x4741e979bae344f7:0x4f86333ebe149cb3!8m2!3d47.3545148,19.0786497!3m6!1s0x4741e979bae344f7:0x4f86333ebe149cb3!2m1!1s0x4741e979bae344f7:0x4f86333ebe149cb3!3m1!1s0x4741e979bae344f7:0x4f86333ebe149cb3" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 text-xs uppercase tracking-wider font-semibold">
                         Google Profil <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
                     </a>
                 </div>
 
-                <!-- Review Kártyák Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Review 1 -->
                     <div class="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-200 flex flex-col justify-between hover:border-amber-400 transition-colors">
                         <div>
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 bg-amber-600 text-white font-bold rounded-full flex items-center justify-center">
-                                        K
-                                    </div>
+                                    <div class="w-10 h-10 bg-amber-600 text-white font-bold rounded-full flex items-center justify-center">K</div>
                                     <div>
                                         <h4 class="font-bold text-sm text-slate-900">Kovács István</h4>
                                         <p class="text-xs text-gray-400">Google értékelés</p>
@@ -423,19 +389,16 @@
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
                             <p class="text-gray-600 text-sm italic leading-relaxed">
-                                "Rendkívül gyors és precíz segítséget kaptam ingatlan vásárlás során. Az ügyvéd úr minden részletre kiterjedően elmagyarázta a szerződést. Csak ajánlani tudom!"
+                                "Rendkívül gyors és precíz segítséget kaptam ingatlan vásárlás során. Az ügyvéd úr minden részletre kiterjedően elmagyarázta a szerződést. Csak ajánlani tudom."
                             </p>
                         </div>
                     </div>
 
-                    <!-- Review 2 -->
                     <div class="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-200 flex flex-col justify-between hover:border-amber-400 transition-colors">
                         <div>
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 bg-slate-800 text-white font-bold rounded-full flex items-center justify-center">
-                                        N
-                                    </div>
+                                    <div class="w-10 h-10 bg-slate-800 text-white font-bold rounded-full flex items-center justify-center">N</div>
                                     <div>
                                         <h4 class="font-bold text-sm text-slate-900">Nagy Katalin</h4>
                                         <p class="text-xs text-gray-400">Google értékelés</p>
@@ -452,14 +415,11 @@
                         </div>
                     </div>
 
-                    <!-- Review 3 -->
                     <div class="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-200 flex flex-col justify-between hover:border-amber-400 transition-colors">
                         <div>
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 bg-emerald-700 text-white font-bold rounded-full flex items-center justify-center">
-                                        SZ
-                                    </div>
+                                    <div class="w-10 h-10 bg-emerald-700 text-white font-bold rounded-full flex items-center justify-center">SZ</div>
                                     <div>
                                         <h4 class="font-bold text-sm text-slate-900">Szabó Zoltán</h4>
                                         <p class="text-xs text-gray-400">Google értékelés</p>
@@ -483,8 +443,6 @@
         <section id="kapcsolat" class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    
-                    <!-- Kapcsolattartási adatok -->
                     <div class="lg:col-span-5">
                         <span class="text-amber-600 font-semibold tracking-widest uppercase text-xs block mb-2">Elérhetőség</span>
                         <h2 class="text-3xl sm:text-4xl font-bold font-serif-legal text-slate-900 mb-4">Vegye fel a kapcsolatot</h2>
@@ -538,7 +496,6 @@
                         </div>
                     </div>
 
-                    <!-- E-mail Űrlap -->
                     <div class="lg:col-span-7 bg-slate-900 p-8 sm:p-10 rounded-lg shadow-2xl border border-slate-800 text-white">
                         <h3 class="text-2xl font-bold font-serif-legal mb-2 text-white">Üzenetküldés / Ajánlatkérés</h3>
                         <p class="text-xs text-gray-400 mb-6">Töltse ki az alábbi űrlapot, és 24 órán belül válaszolunk megkeresésére.</p>
@@ -580,15 +537,14 @@
 
                             <div class="flex items-start space-x-3 text-xs text-gray-400">
                                 <input type="checkbox" id="privacy" required class="mt-0.5 rounded bg-slate-950 border-slate-700 text-amber-600 focus:ring-amber-500">
-                                <label for="privacy" class="leading-relaxed">Elfogadom az <a href="#" class="underline text-amber-400 hover:text-amber-300">Adatkezelési Tájékoztatót</a> és hozzájárulok adataim kezeléséhez.</label>
+                                <label for="privacy" class="leading-relaxed">Elfogadom az <a href="#" class="underline text-amber-400 hover:text-amber-300">Adatkezelési Tájékoztatót</a> és hozzájárulok a kapcsolatfelvételhez.</label>
                             </div>
 
-                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-semibold py-4 rounded transition-colors shadow-lg uppercase tracking-wider text-xs border border-amber-400/30">
+                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-semibold py-4 rounded transition-colors shadow-lg uppercase tracking-wider text-xs border border-amber-400/40">
                                 Üzenet Elküldése
                             </button>
                         </form>
                     </div>
-
                 </div>
             </div>
         </section>
