@@ -101,35 +101,46 @@
         </div>
 
         <!-- Mobil Menü -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-3 pb-6 space-y-3">
-            <a href="#fooldal" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
-            <a href="#bemutatkozas" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Rólam (Bemutatkozás)</a>
-            <div>
-                <button id="mobile-dropdown-btn" class="w-full text-left py-2 text-gray-200 hover:text-amber-400 font-medium text-sm flex justify-between items-center">
-                    <span>Szakterületek</span>
-                    <i class="fa-solid fa-chevron-down text-xs text-amber-500"></i>
-                </button>
-                <div id="mobile-dropdown" class="hidden pl-4 py-2 space-y-2 text-xs text-gray-400 border-l border-amber-500/30">
-                    <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Ingatlanjog</a>
-                    <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Cégjog és Gazdasági jog</a>
-                    <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Családjog</a>
-                    <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Büntetőjog</a>
-                    <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Munkajog</a>
-                    <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Kártérítési jog</a>
-                </div>
-            </div>
-            <a href="#velemenyek" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Vélemények</a>
-           <div id="content"></div>
+       <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-3 pb-6 space-y-3">
+    <a href="#fooldal" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
+    <a href="#bemutatkozas" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Rólam (Bemutatkozás)</a>
+    
+    <!-- Szakterületek lenyíló (ha a többi részt el akarod tüntetni, ezt a blokkot egyszerűen törölheted) -->
+    <div>
+        <button id="mobile-dropdown-btn" class="w-full text-left py-2 text-gray-200 hover:text-amber-400 font-medium text-sm flex justify-between items-center">
+            <span>Szakterületek</span>
+            <i class="fa-solid fa-chevron-down text-xs text-amber-500"></i>
+        </button>
+        <div id="mobile-dropdown" class="hidden pl-4 py-2 space-y-2 text-xs text-gray-400 border-l border-amber-500/30">
+            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Ingatlanjog</a>
+            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Cégjog és Gazdasági jog</a>
+            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Családjog</a>
+            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Büntetőjog</a>
+            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Munkajog</a>
+            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Kártérítési jog</a>
+        </div>
+    </div>
+
+    <a href="#velemenyek" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Vélemények</a>
+    
+    <!-- Hasznos linkek gomb / navigációs elem, ami meghívja a fetchet vagy a tartalmat -->
+    <a href="#hasznos-linkek" id="hasznos-linkek-btn" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Hasznos linkek</a>
+    
+    <!-- Ide töltődik be a külső oldal tartalma a mobil menüponton belül, de külön konténerben -->
+    <div id="content" class="py-2"></div>
+
+    <a href="#kapcsolat" class="block py-2 text-amber-400 font-semibold text-sm">Kapcsolat</a>
+</div>
 
 <script>
-  fetch("https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/hasznos_linkek.html")
-    .then(r => r.text())
-    .then(html => {
-      document.getElementById("content").innerHTML = html;
-    });
+    // A fetch most már tisztán betölti a tartalmat a #content elembe anélkül, hogy a menü struktúráját szétbarmolná
+    fetch("https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/hasznos_linkek.html")
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById("content").innerHTML = html;
+        })
+        .catch(err => console.error("Hiba a hasznos linkek betöltésekor:", err));
 </script>
-            <a href="#kapcsolat" class="block py-2 text-amber-400 font-semibold text-sm">Kapcsolat</a>
-        </div>
     </header>
 
     <main class="flex-grow">
