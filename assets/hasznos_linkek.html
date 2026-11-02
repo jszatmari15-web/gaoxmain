@@ -20,17 +20,6 @@
         .font-brand {
             font-family: 'Cinzel', serif;
         }
-        .dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(8px);
-            transition: all 0.2s ease-in-out;
-        }
-        .dropdown-group:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body class="bg-slate-950 text-gray-200 antialiased flex flex-col min-h-screen">
@@ -54,37 +43,10 @@
                 <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase text-gray-300">
                     <a href="lawyer_template.html#fooldal" class="hover:text-amber-400 transition-colors py-2">Főoldal</a>
                     <a href="lawyer_template.html#bemutatkozas" class="hover:text-amber-400 transition-colors py-2">Rólam</a>
-                    
-                    <div class="relative dropdown-group py-2">
-                        <a href="lawyer_template.html#szakteruletek" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer">
-                            <span>Szakterületek</span>
-                            <i class="fa-solid fa-chevron-down text-[9px] text-amber-500"></i>
-                        </a>
-                        <div class="dropdown-menu absolute left-0 top-full w-60 bg-slate-900 border border-slate-800 shadow-2xl rounded-lg py-2 text-gray-300 normal-case font-normal text-xs">
-                            <a href="lawyer_template.html#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
-                                <i class="fa-solid fa-building-user text-amber-500 w-5"></i> Ingatlanjog
-                            </a>
-                            <a href="lawyer_template.html#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
-                                <i class="fa-solid fa-briefcase text-amber-500 w-5"></i> Cégjog & Gazdasági jog
-                            </a>
-                            <a href="lawyer_template.html#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
-                                <i class="fa-solid fa-people-roof text-amber-500 w-5"></i> Családjog
-                            </a>
-                            <a href="lawyer_template.html#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
-                                <i class="fa-solid fa-gavel text-amber-500 w-5"></i> Büntetőjog
-                            </a>
-                            <a href="lawyer_template.html#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
-                                <i class="fa-solid fa-user-tie text-amber-500 w-5"></i> Munkajog
-                            </a>
-                            <a href="lawyer_template.html#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
-                                <i class="fa-solid fa-handshake-angle text-amber-500 w-5"></i> Kártérítési jog
-                            </a>
-                        </div>
-                    </div>
-
+                    <a href="lawyer_template.html#szakteruletek" class="hover:text-amber-400 transition-colors py-2">Szakterületek</a>
                     <a href="lawyer_template.html#velemenyek" class="hover:text-amber-400 transition-colors py-2">Vélemények</a>
                     <a href="hasznos_linkek.html" class="text-amber-400 font-bold transition-colors py-2 border-b-2 border-amber-500">Hasznos Linkek</a>
-                    <a href="lawyer_template.html#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-amber-600/20">
+                    <a href="lawyer_template.html#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-lg transition-all">
                         Kapcsolat
                     </a>
                 </nav>
@@ -102,6 +64,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-3 pb-6 space-y-3">
             <a href="lawyer_template.html#fooldal" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
             <a href="lawyer_template.html#bemutatkozas" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Rólam</a>
+            <a href="lawyer_template.html#szakteruletek" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Szakterületek</a>
+            <a href="lawyer_template.html#velemenyek" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Vélemények</a>
             <a href="hasznos_linkek.html" class="block py-2 text-amber-400 font-semibold text-sm">Hasznos Linkek</a>
             <a href="lawyer_template.html#kapcsolat" class="block py-2 text-amber-400 font-semibold text-sm">Kapcsolat</a>
         </div>
@@ -131,83 +95,83 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     
                     <!-- 1. Magyarország.hu -->
-                    <a href="https://magyarorszag.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://magyarorszag.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-landmark text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">Magyarország.hu</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Kormányzati ügyintézés, Ügyfélkapu belépés és elektronikus államigazgatási portál.</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                     <!-- 2. Nemzeti Jogszabálytár -->
-                    <a href="https://njt.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://njt.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-book-bookmark text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">Nemzeti Jogszabálytár</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Hatályos magyar törvények, kormány- és miniszteri rendeletek hivatalos keresője (NJT).</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                     <!-- 3. Bíróságok Portálja -->
-                    <a href="https://birosag.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://birosag.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-scale-unbalanced text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">Bíróságok Portálja</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Információk a magyar bírósági szervezetrendszerről, illetékességi kereső és nyomtatványok.</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                     <!-- 4. E-Cégjegyzék -->
-                    <a href="https://www.e-cegjegyzek.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://www.e-cegjegyzek.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-building text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">E-Cégjegyzék</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Ingyenes céginformációk, cégnyilvántartás, képviselők és cégadatok lekérdezése.</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                     <!-- 5. TakarNet (Földhivatal) -->
-                    <a href="https://www.takarnet.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://www.takarnet.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-map-location-dot text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">TakarNet / Földhivatal</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Ingatlan-nyilvántartási adatbázis, tulajdoni lap másolat lekérdezése és térképmásolatok.</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                     <!-- 6. Magyar Ügyvédi Kamara -->
-                    <a href="https://www.magyarugyvedikamara.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://www.magyarugyvedikamara.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-id-card-clip text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">Magyar Ügyvédi Kamara</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Hivatalos kamara portálja, országos ügyvédkereső és kamarai szabályzatok.</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                     <!-- 7. NAV - Nemzeti Adó- és Vámhivatal -->
-                    <a href="https://nav.gov.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://nav.gov.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-file-invoice-dollar text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">NAV Portál</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Adóügyi tájékoztatók, illetékszabályok, adószám-ellenőrzés és adózási információk.</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                     <!-- 8. Alkotmánybíróság -->
-                    <a href="https://alkotmanybirosag.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all group flex flex-col justify-between shadow-lg">
+                    <a href="https://alkotmanybirosag.hu" target="_blank" rel="noopener" class="p-6 bg-slate-800/80 border border-slate-700 rounded-lg hover:border-amber-500 hover:bg-slate-800 transition-all duration-300 flex flex-col h-full group">
                         <div>
                             <i class="fa-solid fa-gavel text-amber-500 text-3xl mb-4 group-hover:scale-110 transition-transform block"></i>
                             <h4 class="font-bold text-white mb-2 text-base group-hover:text-amber-400 transition-colors">Alkotmánybíróság</h4>
                             <p class="text-xs text-gray-400 leading-relaxed mb-4">Alkotmányjogi panaszok, normakontroll és az Alkotmánybíróság határozatainak keresője.</p>
                         </div>
-                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></span>
+                        <span class="text-[11px] text-amber-400 font-semibold uppercase tracking-wider flex items-center gap-1 mt-auto">Megnyitás <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></span>
                     </a>
 
                 </div>
@@ -218,7 +182,7 @@
                     <p class="text-xs text-gray-400 leading-relaxed mb-6">
                         Bár a hivatalos nyilvántartások nyilvánosan elérhetőek, a jogi dokumentumok értelmezése és az eljárások lebonyolítása szakszerű felkészültséget igényel.
                     </p>
-                    <a href="lawyer_template.html#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white font-semibold px-6 py-3 rounded transition-colors text-xs uppercase tracking-wider inline-block">
+                    <a href="lawyer_template.html#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white font-semibold px-6 py-3 rounded transition-colors text-xs uppercase tracking-wider inline-flex items-center gap-2">
                         Kapcsolatfelvétel az ügyvéddel
                     </a>
                 </div>
