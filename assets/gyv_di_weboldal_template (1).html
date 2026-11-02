@@ -86,6 +86,13 @@
 
                     <a href="#velemenyek" class="hover:text-amber-400 transition-colors py-2">Vélemények</a>
                     <a href="hasznos_linkek.html" class="hover:text-amber-400 transition-colors py-2">Hasznos linkek</a>
+                    <script>
+  fetch("https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/hasznos_linkek.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("content").innerHTML = html;
+    });
+</script>
                     <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-xl">
                         Kapcsolat
                     </a>
@@ -120,10 +127,6 @@
             <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Kártérítési jog</a>
         </div>
     </div>
-
-    <a href="#velemenyek" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Vélemények</a>
-    <a href="hasznos_linkek.html" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Hasznos linkek</a>
-    <a href="#kapcsolat" class="block py-2 text-amber-400 font-semibold text-sm">Kapcsolat</a>
 </div>
 
 
