@@ -126,13 +126,7 @@
     <!-- Hasznos linkek gomb / navigációs elem, ami meghívja a fetchet vagy a tartalmat -->
     <a href="#hasznos-linkek" id="hasznos-linkek-btn" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Hasznos linkek</a>
     
-    <!-- Ide töltődik be a külső oldal tartalma a mobil menüponton belül, de külön konténerben -->
-    <div id="content" class="py-2"></div>
-
-    <a href="#kapcsolat" class="block py-2 text-amber-400 font-semibold text-sm">Kapcsolat</a>
-</div>
-
-<script>
+    <script>
     // A fetch most már tisztán betölti a tartalmat a #content elembe anélkül, hogy a menü struktúráját szétbarmolná
     fetch("https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/hasznos_linkek.html")
         .then(r => r.text())
@@ -141,7 +135,10 @@
         })
         .catch(err => console.error("Hiba a hasznos linkek betöltésekor:", err));
 </script>
-    </header>
+
+    <a href="#kapcsolat" class="block py-2 text-amber-400 font-semibold text-sm">Kapcsolat</a>
+</div>
+
 
     <main class="flex-grow">
         <!-- FŐOLDAL / HERO SECTION -->
