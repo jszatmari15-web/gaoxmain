@@ -20,28 +20,31 @@
         .font-brand {
             font-family: 'Cinzel', serif;
         }
-        /* Custom Dropdown Animation */
+        /* Custom Dropdown Animation & Fix */
         .dropdown-menu {
             opacity: 0;
             visibility: hidden;
             transform: translateY(8px);
             transition: all 0.2s ease-in-out;
+            pointer-events: none;
         }
-        .dropdown-group:hover .dropdown-menu {
+        .dropdown-group:hover .dropdown-menu,
+        .dropdown-group:focus-within .dropdown-menu {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+            pointer-events: auto;
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
 
-    <!-- FEJLÉC & NAVIGÁCIÓ (Megújult, letisztult dizájn) -->
+    <!-- FEJLÉC & NAVIGÁCIÓ -->
     <header class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-amber-500/20 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo / Név eleme (Letisztult, Law Enforcement nélkül) -->
-                <a href="#fooldal" class="flex items-center space-x-3 group">
+                <!-- Logo / Név eleme -->
+                <a href="#fooldal" onclick="showMainPage()" class="flex items-center space-x-3 group cursor-pointer">
                     <div class="w-10 h-10 rounded-lg border border-amber-500/40 bg-slate-900/80 flex items-center justify-center group-hover:border-amber-400 transition-all">
                         <i class="fa-solid fa-scale-balanced text-amber-500 text-lg"></i>
                     </div>
@@ -53,40 +56,40 @@
 
                 <!-- Asztali Navigáció -->
                 <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase text-gray-300">
-                    <a href="#fooldal" class="hover:text-amber-400 transition-colors py-2">Főoldal</a>
-                    <a href="#bemutatkozas" class="hover:text-amber-400 transition-colors py-2">Rólam</a>
+                    <a href="#fooldal" onclick="showMainPage()" class="hover:text-amber-400 transition-colors py-2">Főoldal</a>
+                    <a href="#bemutatkozas" onclick="showMainPage()" class="hover:text-amber-400 transition-colors py-2">Rólam</a>
                     
                     <!-- Lenyíló menü (Dropdown) Szakterületek -->
                     <div class="relative dropdown-group py-2">
-                        <a href="#szakteruletek" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer">
+                        <a href="#szakteruletek" onclick="showMainPage()" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer">
                             <span>Szakterületek</span>
                             <i class="fa-solid fa-chevron-down text-[9px] text-amber-500"></i>
                         </a>
-                        <div class="dropdown-menu absolute left-0 top-full w-60 bg-slate-900 border border-slate-800 shadow-2xl rounded-lg py-2 text-gray-300 normal-case font-normal text-xs">
-                            <a href="#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
+                        <div class="dropdown-menu absolute left-0 top-full w-60 bg-slate-900 border border-slate-800 shadow-2xl rounded-lg py-2 text-gray-300 normal-case font-normal text-xs z-50">
+                            <a href="#szakteruletek" onclick="showMainPage()" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
                                 <i class="fa-solid fa-building-user text-amber-500 w-5"></i> Ingatlanjog
                             </a>
-                            <a href="#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
+                            <a href="#szakteruletek" onclick="showMainPage()" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
                                 <i class="fa-solid fa-briefcase text-amber-500 w-5"></i> Cégjog & Gazdasági jog
                             </a>
-                            <a href="#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
+                            <a href="#szakteruletek" onclick="showMainPage()" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
                                 <i class="fa-solid fa-people-roof text-amber-500 w-5"></i> Családjog
                             </a>
-                            <a href="#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
+                            <a href="#szakteruletek" onclick="showMainPage()" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
                                 <i class="fa-solid fa-gavel text-amber-500 w-5"></i> Büntetőjog
                             </a>
-                            <a href="#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
+                            <a href="#szakteruletek" onclick="showMainPage()" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
                                 <i class="fa-solid fa-user-tie text-amber-500 w-5"></i> Munkajog
                             </a>
-                            <a href="#szakteruletek" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
+                            <a href="#szakteruletek" onclick="showMainPage()" class="block px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all">
                                 <i class="fa-solid fa-handshake-angle text-amber-500 w-5"></i> Kártérítési jog
                             </a>
                         </div>
                     </div>
 
-                    <a href="#velemenyek" class="hover:text-amber-400 transition-colors py-2">Vélemények</a>
-                    <a href="#hasznos_linkek" class="hover:text-amber-400 transition-colors py-2">Hasznos linkek</a>
-                    <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-xl">
+                    <a href="#velemenyek" onclick="showMainPage()" class="hover:text-amber-400 transition-colors py-2">Vélemények</a>
+                    <button onclick="openHasznosLinkekPage()" class="hover:text-amber-400 transition-colors py-2 uppercase text-xs font-semibold tracking-wider bg-transparent border-none cursor-pointer">Hasznos linkek</button>
+                    <a href="#kapcsolat" onclick="showMainPage()" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-xl">
                         Kapcsolat
                     </a>
                 </nav>
@@ -101,29 +104,32 @@
         </div>
 
         <!-- Mobil Menü -->
-       <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-3 pb-6 space-y-3">
-    <a href="#fooldal" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
-    <a href="#bemutatkozas" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Rólam (Bemutatkozás)</a>
-    
-    <!-- Szakterületek lenyíló -->
-    <div>
-        <button id="mobile-dropdown-btn" class="w-full text-left py-2 text-gray-200 hover:text-amber-400 font-medium text-sm flex justify-between items-center">
-            <span>Szakterületek</span>
-            <i class="fa-solid fa-chevron-down text-xs text-amber-500"></i>
-        </button>
-        <div id="mobile-dropdown" class="hidden pl-4 py-2 space-y-2 text-xs text-gray-400 border-l border-amber-500/30">
-            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Ingatlanjog</a>
-            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Cégjog és Gazdasági jog</a>
-            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Családjog</a>
-            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Büntetőjog</a>
-            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Munkajog</a>
-            <a href="#szakteruletek" class="block py-1 hover:text-amber-400">Kártérítési jog</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-3 pb-6 space-y-3">
+            <a href="#fooldal" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
+            <a href="#bemutatkozas" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Rólam (Bemutatkozás)</a>
+            
+            <div>
+                <button id="mobile-dropdown-btn" class="w-full text-left py-2 text-gray-200 hover:text-amber-400 font-medium text-sm flex justify-between items-center">
+                    <span>Szakterületek</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-500"></i>
+                </button>
+                <div id="mobile-dropdown" class="hidden pl-4 py-2 space-y-2 text-xs text-gray-400 border-l border-amber-500/30">
+                    <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Ingatlanjog</a>
+                    <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Cégjog és Gazdasági jog</a>
+                    <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Családjog</a>
+                    <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Büntetőjog</a>
+                    <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Munkajog</a>
+                    <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Kártérítési jog</a>
+                </div>
+            </div>
+            <a href="#velemenyek" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Vélemények</a>
+            <button onclick="openHasznosLinkekPage()" class="block text-left w-full py-2 text-gray-200 hover:text-amber-400 font-medium text-sm bg-transparent border-none cursor-pointer">Hasznos linkek</button>
+            <a href="#kapcsolat" onclick="showMainPage()" class="block text-center bg-amber-600 text-white py-2.5 rounded font-semibold text-xs uppercase tracking-wider">Kapcsolat</a>
         </div>
-    </div>
-</div>
+    </header>
 
-
-    <main class="flex-grow">
+    <!-- FŐOLDAL TARTALOM (Eredeti szekciók) -->
+    <main id="main-content" class="flex-grow">
         <!-- FŐOLDAL / HERO SECTION -->
         <section id="fooldal" class="relative bg-slate-950 text-white py-28 sm:py-36 overflow-hidden">
             <div class="absolute inset-0 opacity-50">
@@ -546,6 +552,27 @@
         </section>
     </main>
 
+    <!-- HASZNOS LINKEK KÜLÖN OLDAL (Alapból rejtett, gombra megjelenő nézet) -->
+    <div id="hasznos-linkek-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-link text-amber-600"></i> Hasznos Linkek
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="hasznos-linkek-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- LÁBLÉC / FOOTER -->
     <footer class="bg-slate-950 text-gray-400 py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -558,7 +585,7 @@
         </div>
     </footer>
 
-    <!-- Mobil menü & Dropdown script -->
+    <!-- Script: Mobil menü, Dropdown és Oldalváltás Fetch-csel -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -572,6 +599,51 @@
         mobileDropdownBtn.addEventListener('click', () => {
             mobileDropdown.classList.toggle('hidden');
         });
+
+        // Hasznos linkek oldal betöltése és megjelenítése
+        function openHasznosLinkekPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const contentContainer = document.getElementById('hasznos-linkek-tartalom');
+
+            // Főoldal elrejtése, Hasznos linkek oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/hasznos_linkek.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Hasznos linkeket.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // Visszatérés a főoldalra
+        function showMainPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+
+            hasznosPage.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
