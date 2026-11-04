@@ -57,7 +57,7 @@
                 <!-- Asztali Navigáció -->
                 <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase text-gray-300">
                     <a href="#fooldal" onclick="showMainPage()" class="hover:text-amber-400 transition-colors py-2">Főoldal</a>
-                    <a href="#bemutatkozas" onclick="showMainPage()" class="hover:text-amber-400 transition-colors py-2">Rólam</a>
+                    <button onclick="openBemutatkozasPage()" class="hover:text-amber-400 transition-colors py-2 uppercase text-xs font-semibold tracking-wider bg-transparent border-none cursor-pointer">Bemutakozás</button>
                     
                     <!-- Lenyíló menü (Dropdown) Szakterületek -->
                     <div class="relative dropdown-group py-2">
@@ -106,7 +106,7 @@
         <!-- Mobil Menü -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-3 pb-6 space-y-3">
             <a href="#fooldal" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
-            <a href="#bemutatkozas" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Rólam (Bemutatkozás)</a>
+            <a href="#bemutatkozas" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Bemutatkozás</a>
             
             <div>
                 <button id="mobile-dropdown-btn" class="w-full text-left py-2 text-gray-200 hover:text-amber-400 font-medium text-sm flex justify-between items-center">
@@ -628,6 +628,39 @@
                         <div class="flex flex-col items-center justify-center py-16 text-center">
                             <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
                             <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Hasznos linkeket.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openBemutatkozasPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const contentContainer = document.getElementById('hasznos-linkek-tartalom');
+
+            // Főoldal elrejtése, Hasznos linkek oldal mutatása
+            mainContent.classList.add('hidden');
+            BemutatkozasPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/bemutatkozas.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Bemutatkozás oldalt.</p>
                             <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
                         </div>
                     `;
