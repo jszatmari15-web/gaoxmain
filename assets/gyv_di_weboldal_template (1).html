@@ -655,18 +655,20 @@
                 });
         }
 
-        function openBemutatkozasPage() {
+     function openBemutatkozasPage() {
             const mainContent = document.getElementById('main-content');
-            const BemutatkozasPage = document.getElementById('bemutatkozas-page');
-            const contentContainer = document.getElementById('hasznos-linkek-tartalom');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page'); // JAVÍTVA: kisbetűs ID és helyes változónév
+            const contentContainer = document.getElementById('bemutatkozas-tartalom'); // JAVÍTVA: a bemutatkozás saját tartalomtárolója
 
-            // Főoldal elrejtése, Hasznos linkek oldal mutatása
+            // Főoldal és egyéb oldalak elrejtése, Bemutatkozás oldal mutatása
             mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
             bemutatkozasPage.classList.remove('hidden');
             mobileMenu.classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            // Fetch kérés a GitHub raw tartalomért
+            // Fetch kérés a GitHub raw tartalomért (ellenőrizd, hogy az assets mappában van-e a fájl!)
             fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/bemutatkozas.html')
                 .then(response => {
                     if (!response.ok) {
