@@ -572,7 +572,7 @@
         </div>
     </div>
 
-   <!-- bemutatkozás oldal-- >
+ <!-- Bemutatkozás oldal -->
 
     <div id="bemutatkozas-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div class="max-w-5xl mx-auto">
@@ -586,7 +586,7 @@
                 </h2>
             </div>
             <!-- Itt jelenik meg a fetchelt tartalom -->
-            <div id="hasznos-linkek-tartalom" class="text-gray-800 leading-relaxed">
+            <div id="bemutatkozas-tartalom" class="text-gray-800 leading-relaxed">
                 <div class="flex flex-col items-center justify-center py-20">
                     <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
                 </div>
@@ -662,7 +662,7 @@
 
             // Főoldal elrejtése, Hasznos linkek oldal mutatása
             mainContent.classList.add('hidden');
-            BemutatkozasPage.classList.remove('hidden');
+            bemutatkozasPage.classList.remove('hidden');
             mobileMenu.classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -689,17 +689,13 @@
         }
 
         // Visszatérés a főoldalra
-        function showMainPage() {
-            const mainContent = document.getElementById('main-content');
-            const hasznosPage = document.getElementById('hasznos-linkek-page');
-            const BemutatkozasPage = document.getElementById(' bemutatkozas-page');
-
-            hasznosPage.classList.add('hidden');
-            BemutatkozasPage.classlist.add('hidden');
-            mainContent.classList.remove('hidden');
-            mobileMenu.classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      function showMainPage() {
+    document.getElementById('hasznos-linkek-page').classList.add('hidden');
+    document.getElementById('bemutatkozas-page').classList.add('hidden');
+    document.getElementById('main-content').classList.remove('hidden');
+    mobileMenu.classList.add('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
     </script>
 </body>
 </html>
