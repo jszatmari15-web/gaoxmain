@@ -657,7 +657,7 @@
 
         function openBemutatkozasPage() {
             const mainContent = document.getElementById('main-content');
-            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const BemutatkozasPage = document.getElementById('bemutatkozas-page');
             const contentContainer = document.getElementById('hasznos-linkek-tartalom');
 
             // Főoldal elrejtése, Hasznos linkek oldal mutatása
@@ -692,8 +692,10 @@
         function showMainPage() {
             const mainContent = document.getElementById('main-content');
             const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const BemutatkozasPage = document.getElementById(' bemutatkozas-page');
 
             hasznosPage.classList.add('hidden');
+            BemutatkozasPage.classlist.add('hidden');
             mainContent.classList.remove('hidden');
             mobileMenu.classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
