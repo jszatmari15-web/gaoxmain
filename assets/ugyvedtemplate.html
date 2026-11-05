@@ -853,7 +853,7 @@
             mobileMenu.classList.add('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/ingatlanjog.html')
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/ingatlanjog.html')
                 .then(response => {
                     if (!response.ok) throw new Error('Hálózati hiba');
                     return response.text();
