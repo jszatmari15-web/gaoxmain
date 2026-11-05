@@ -145,15 +145,15 @@
                         Szakértelem, megbízhatóság és elkötelezett jogi képviselet.
                     </h1>
                     <p class="text-lg sm:text-xl text-gray-300 mb-10 font-light leading-relaxed">
-                        Magas színvonalú jogi tanácsadás és hatékony érdekérvényesítés magánszemélyek és vállalkozások részére a legközetlenebb ügyfélközpontúsággal.
+                        Magas színvonalú jogi tanácsadás és hatékony érdekérvényesítés ügyfélközpontú szemlélettel magánszemélyek és vállalkozások részére.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white text-center font-semibold px-8 py-4 rounded shadow-xl transition-all border border-amber-400/40 tracking-[0.12em] uppercase text-xs">
                             Konzultáció Kérése
                         </a>
-                        <a href="#bemutatkozas" class="border border-slate-700 hover:border-amber-400 text-gray-200 hover:text-amber-400 text-center font-semibold px-8 py-4 rounded transition-all tracking-[0.12em] uppercase text-xs">
+                        <button onclick="openBemutatkozasPage()" class="border border-slate-700 hover:border-amber-400 text-gray-200 hover:text-amber-400 text-center font-semibold px-8 py-4 rounded transition-all tracking-[0.12em] uppercase text-xs">
                             Rólam bővebben
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -163,18 +163,24 @@
         <section id="bemutatkozas" class="py-20 bg-white relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-4 flex justify-center">
-                        <div class="relative max-w-xs w-full">
-                            <div class="relative z-10 rounded-lg overflow-hidden shadow-lg border-2 border-slate-100">
-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&h=750&q=80" alt="Dr. Minta Péter ügyvéd" class="w-full h-80 object-cover">
-                            </div>
-                            <div class="absolute -bottom-3 -right-3 w-full h-full border border-amber-500/30 rounded-lg z-0 hidden sm:block"></div>
-                            <div class="absolute -bottom-4 -left-4 z-20 bg-slate-900 text-white px-3.5 py-2.5 rounded-md shadow-md border border-amber-500/30">
-                                <p class="text-lg font-bold font-serif-legal text-amber-400 leading-none">15+ Év</p>
-                                <p class="text-[10px] text-gray-300 mt-0.5">Tapasztalat</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="lg:col-span-4 flex justify-center lg:justify-start">
+    <div class="relative w-full max-w-[340px]">
+        <div class="relative z-10 rounded-[18px] overflow-hidden shadow-lg border-2 border-slate-100">
+            <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&h=750&q=80"
+                alt="Dr. Minta Péter ügyvéd"
+                class="block w-full aspect-[4/5] object-cover object-top">
+        </div>
+
+        <div class="absolute -bottom-3 -right-3 w-full h-full border border-amber-500/30 rounded-[18px] z-0 hidden sm:block"></div>
+
+        <div class="absolute -bottom-4 -left-4 z-20 bg-slate-900 text-white px-3.5 py-2.5 rounded-md shadow-md border border-amber-500/30">
+            <p class="text-lg font-bold font-serif-legal text-amber-400 leading-none">15+ Év</p>
+            <p class="text-[10px] text-gray-300 mt-0.5">Tapasztalat</p>
+        </div>
+    </div>
+</div>
+                   
 
                     <div class="lg:col-span-8">
                         <span class="text-amber-600 font-semibold tracking-widest uppercase text-xs block mb-2">Köszöntöm az oldalamon!</span>
@@ -182,7 +188,7 @@
                         <div class="w-16 h-1 bg-amber-500 mb-6"></div>
                         
                         <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
-                            Pályafutásomat az Eötvös Loránd Tudományegyetem Állam- és Jogtudományi Karának elvégzését követően kezdtem. Több mint másfél évtizede képviselem ügyfeleimet...
+                            Pályafutásomat az Eötvös Loránd Tudományegyetem Állam- és Jogtudományi Karának elvégzését követően kezdtem. Több mint másfél évtizede képviselem ügyfeleimet.
                         </p>
                         <p class="text-gray-600 text-sm leading-relaxed mb-6">
                             Hitem szerint a jó ügyvédi munka alapja a precizitás, a diszkréció és a személyre szabott figyelem. Célom, hogy jogi problémáira ne csupán törvényi választ, hanem reális, gyakorlati megoldást kínáljak.
