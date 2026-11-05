@@ -754,21 +754,23 @@
 
     
     <!-- LÁBLÉC / FOOTER -->
+ <!-- LÁBLÉC / FOOTER -->
     <footer class="bg-slate-950 text-gray-400 py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div class="text-xs text-gray-400">
                 &copy; 2026 Dr. Minta Péter Ügyvédi Iroda. Minden jog fenntartva.
             </div>
-            <div class="text-[11px] text-gray-500 max-w-md text-center md:text-right leading-relaxed">
-                Ezt a honlapot a Budapesti Ügyvédi Kamarában bejegyzett ügyvéd tartja fenn az ügyvédekre vonatkozó jogszabályok és belső szabályzatok szerint.
+            
+            <div class="flex flex-col items-center md:items-end space-y-2">
+                <div class="text-[11px] text-gray-500 max-w-md text-center md:text-right leading-relaxed">
+                    Ezt a honlapot a Budapesti Ügyvédi Kamarában bejegyzett ügyvéd tartja fenn az ügyvédekre vonatkozó jogszabályok és belső szabályzatok szerint.
+                </div>
+                <button onclick="openAdatPage()" class="text-xs underline text-amber-400 hover:text-amber-300 bg-transparent border-none cursor-pointer transition-colors p-0">
+                    Adatkezelési Tájékoztató
+                </button>
             </div>
-            <button onclick="openAdatPage()"
-            class="underline text-amber-400 hover:text-amber-300">
-      Adatkezelési Tájékoztató
-    </button>
         </div>
     </footer>
-
     <!-- Script: Mobil menü, Dropdown és Oldalváltás Fetch-csel -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
