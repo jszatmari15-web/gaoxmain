@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Minta Péter Ügyvédi Iroda</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Cinzel, Cormorant Garamond & Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1, h2, h3, h4, .font-serif-legal {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .font-brand {
+            font-family: 'Cinzel', serif;
+        }
+        /* Custom Dropdown Animation & Fix */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: all 0.2s ease-in-out;
+            pointer-events: none;
+        }
+        .dropdown-group:hover .dropdown-menu,
+        .dropdown-group:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- FEJLÉC & NAVIGÁCIÓ -->
+    <header class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-amber-500/20 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Név eleme -->
+                <a href="#fooldal" onclick="showMainPage()" class="flex items-center space-x-3 group cursor-pointer">
+                    <div class="w-10 h-10 rounded-lg border border-amber-500/40 bg-slate-900/80 flex items-center justify-center group-hover:border-amber-400 transition-all">
+                        <i class="fa-solid fa-scale-balanced text-amber-500 text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-brand text-lg sm:text-xl font-bold tracking-widest text-white leading-tight">DR. MINTA PÉTER</span>
+                        <span class="text-[10px] tracking-widest text-amber-400/90 font-medium uppercase">Ügyvédi Iroda</span>
+                    </div>
+                </a>
+
+                <!-- Asztali Navigáció -->
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider uppercase text-gray-300">
+                    <a href="#fooldal" onclick="showMainPage()" class="hover:text-amber-400 transition-colors py-2">Főoldal</a>
+                    <button onclick="openBemutatkozasPage()" class="hover:text-amber-400 transition-colors py-2 uppercase text-xs font-semibold tracking-wider bg-transparent border-none cursor-pointer">Bemutatkozás</button>
+                    
+                    <!-- Lenyíló menü (Dropdown) Szakterületek -->
+                    <div class="relative dropdown-group py-2">
+                        <a href="#szakteruletek" onclick="showMainPage()" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 cursor-pointer">
+                            <span>Szakterületek</span>
+                            <i class="fa-solid fa-chevron-down text-[9px] text-amber-500"></i>
+                        </a>
+                        <div class="dropdown-menu absolute left-0 top-full w-60 bg-slate-900 border border-slate-800 shadow-2xl rounded-lg py-2 text-gray-300 normal-case font-normal text-xs z-50">
+                            <button onclick="openIngatlanjogPage()" class="block w-full text-left px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all bg-transparent border-none cursor-pointer text-gray-300">
+                                <i class="fa-solid fa-building-user text-amber-500 w-5"></i> Ingatlanjog
+                            </button>
+                            <button onclick="openCegjogPage()" class="block w-full text-left px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all bg-transparent border-none cursor-pointer text-gray-300">
+                                <i class="fa-solid fa-briefcase text-amber-500 w-5"></i> Cégjog & Gazdasági jog
+                            </button>
+                            <button onclick="openCsaladjogPage()" class="block w-full text-left px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all bg-transparent border-none cursor-pointer text-gray-300">
+                                <i class="fa-solid fa-people-roof text-amber-500 w-5"></i> Családjog
+                            </button>
+                            <button onclick="openBuntetojogPage()" class="block w-full text-left px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all bg-transparent border-none cursor-pointer text-gray-300">
+                                <i class="fa-solid fa-gavel text-amber-500 w-5"></i> Büntetőjog
+                            </button>
+                            <button onclick="openMunkajogPage()" class="block w-full text-left px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all bg-transparent border-none cursor-pointer text-gray-300">
+                                <i class="fa-solid fa-user-tie text-amber-500 w-5"></i> Munkajog
+                            </button>
+                            <button onclick="openKarteritesiJogPage()" class="block w-full text-left px-4 py-2.5 hover:bg-slate-800 hover:text-amber-400 border-l-2 border-transparent hover:border-amber-500 transition-all bg-transparent border-none cursor-pointer text-gray-300">
+                                <i class="fa-solid fa-handshake-angle text-amber-500 w-5"></i> Kártérítési jog
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="#velemenyek" onclick="showMainPage()" class="hover:text-amber-400 transition-colors py-2">Vélemények</a>
+                    <button onclick="openHasznosLinkekPage()" class="hover:text-amber-400 transition-colors py-2 uppercase text-xs font-semibold tracking-wider bg-transparent border-none cursor-pointer">Hasznos linkek</button>
+                    <a href="#kapcsolat" onclick="showMainPage()" class="bg-amber-600 hover:bg-amber-500 text-white px-5 py-2.5 rounded font-semibold transition-all border border-amber-400/30 text-xs shadow-md hover:shadow-xl">
+                        Kapcsolat
+                    </a>
+                </nav>
+
+                <!-- Mobil Menü Gomb -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-amber-400 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobil Menü -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-6 pt-3 pb-6 space-y-3">
+            <a href="#fooldal" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Főoldal</a>
+             <button onclick="openBemutatkozasPage()" class="hover:text-amber-400 transition-colors py-2 uppercase text-xs font-semibold tracking-wider bg-transparent border-none cursor-pointer">Bemutatkozás</button>
+            <div>
+                <button id="mobile-dropdown-btn" class="w-full text-left py-2 text-gray-200 hover:text-amber-400 font-medium text-sm flex justify-between items-center">
+                    <span>Szakterületek</span>
+                    <i class="fa-solid fa-chevron-down text-xs text-amber-500"></i>
+                </button>
+                <div id="mobile-dropdown" class="hidden pl-4 py-2 space-y-2 text-xs text-gray-400 border-l border-amber-500/30">
+                    <button onclick="openIngatlanjogPage()" class="block py-1 hover:text-amber-400 bg-transparent border-none cursor-pointer text-left w-full text-gray-400">Ingatlanjog</button>
+                    <button onclick="openCegjogPage()" class="block py-1 hover:text-amber-400 bg-transparent border-none cursor-pointer text-left w-full text-gray-400">Cégjog és Gazdasági jog</button>
+                    <button onclick="openCsaladjogPage()" class="block py-1 hover:text-amber-400 bg-transparent border-none cursor-pointer text-left w-full text-gray-400">Családjog</button>
+                    <button onclick="openBuntetojogPage()" class="block py-1 hover:text-amber-400 bg-transparent border-none cursor-pointer text-left w-full text-gray-400">Büntetőjog</button>
+                    <button onclick="openMunkajogPage()" class="block py-1 hover:text-amber-400 bg-transparent border-none cursor-pointer text-left w-full text-gray-400">Munkajog</button>
+                    <button onclick="openKarteritesiJogPage()" class="block py-1 hover:text-amber-400 bg-transparent border-none cursor-pointer text-left w-full text-gray-400">Kártérítési jog</button>
+                </div>
+            </div>
+            <a href="#velemenyek" onclick="showMainPage()" class="block py-2 text-gray-200 hover:text-amber-400 font-medium text-sm">Vélemények</a>
+            <button onclick="openHasznosLinkekPage()" class="block text-left w-full py-2 text-gray-200 hover:text-amber-400 font-medium text-sm bg-transparent border-none cursor-pointer">Hasznos linkek</button>
+            <a href="#kapcsolat" onclick="showMainPage()" class="block text-center bg-amber-600 text-white py-2.5 rounded font-semibold text-xs uppercase tracking-wider">Kapcsolat</a>
+        </div>
+    </header>
+
+    <!-- FŐOLDAL TARTALOM (Eredeti szekciók) -->
+    <main id="main-content" class="flex-grow">
+        <!-- FŐOLDAL / HERO SECTION -->
+        <section id="fooldal" class="relative bg-slate-950 text-white py-28 sm:py-36 overflow-hidden">
+            <div class="absolute inset-0 opacity-50">
+                <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/pexels-sora-shimazaki-5668473.jpg" alt="Jogi könyvtár és kalapács" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+            
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs tracking-widest uppercase mb-6 font-semibold">
+                        <i class="fa-solid fa-certificate"></i> Több mint 15 év szakmai tapasztalat
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-serif-legal leading-tight mb-6 tracking-tight text-white">
+                        Szakértelem, megbízhatóság és elkötelezett jogi képviselet.
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-300 mb-10 font-light leading-relaxed">
+                        Magas színvonalú jogi tanácsadás és hatékony érdekérvényesítés magánszemélyek és vállalkozások részére a legközetlenebb ügyfélközpontúsággal.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#kapcsolat" class="bg-amber-600 hover:bg-amber-500 text-white text-center font-semibold px-8 py-4 rounded shadow-xl transition-all border border-amber-400/40 tracking-[0.12em] uppercase text-xs">
+                            Konzultáció Kérése
+                        </a>
+                        <a href="#bemutatkozas" class="border border-slate-700 hover:border-amber-400 text-gray-200 hover:text-amber-400 text-center font-semibold px-8 py-4 rounded transition-all tracking-[0.12em] uppercase text-xs">
+                            Rólam bővebben
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEMUTATKOZÁS / RÓLAM SECTION -->
+        <section id="bemutatkozas" class="py-20 bg-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <div class="lg:col-span-4 flex justify-center">
+                        <div class="relative max-w-xs w-full">
+                            <div class="relative z-10 rounded-lg overflow-hidden shadow-lg border-2 border-slate-100">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&h=750&q=80" alt="Dr. Minta Péter ügyvéd" class="w-full h-80 object-cover">
+                            </div>
+                            <div class="absolute -bottom-3 -right-3 w-full h-full border border-amber-500/30 rounded-lg z-0 hidden sm:block"></div>
+                            <div class="absolute -bottom-4 -left-4 z-20 bg-slate-900 text-white px-3.5 py-2.5 rounded-md shadow-md border border-amber-500/30">
+                                <p class="text-lg font-bold font-serif-legal text-amber-400 leading-none">15+ Év</p>
+                                <p class="text-[10px] text-gray-300 mt-0.5">Tapasztalat</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8">
+                        <span class="text-amber-600 font-semibold tracking-widest uppercase text-xs block mb-2">Köszöntöm az oldalamon!</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold font-serif-legal text-slate-900 mb-4">Dr. Minta Péter <span class="text-amber-600 text-xl font-normal block sm:inline">| Ügyvéd</span></h2>
+                        <div class="w-16 h-1 bg-amber-500 mb-6"></div>
+                        
+                        <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-4">
+                            Pályafutásomat az Eötvös Loránd Tudományegyetem Állam- és Jogtudományi Karának elvégzését követően kezdtem. Több mint másfél évtizede képviselem ügyfeleimet...
+                        </p>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                            Hitem szerint a jó ügyvédi munka alapja a precizitás, a diszkréció és a személyre szabott figyelem. Célom, hogy jogi problémáira ne csupán törvényi választ, hanem reális, gyakorlati megoldást kínáljak.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-check-double text-amber-600 text-sm mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider">Átlátható díjszabás</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">Nincsenek rejtett költségek, pontos elszámolás minden ügyben.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-shield-halved text-amber-600 text-sm mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider">Teljeskörű titoktartás</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">Az ügyvédi titoktartás garantálja az Ön adatainak biztonságát.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-comments text-amber-600 text-sm mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider">Közvetlen kommunikáció</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">Érthető, jogi zsargontól mentes tájékoztatás.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <i class="fa-solid fa-award text-amber-600 text-sm mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider">Kamarai tagság</h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">Budapesti Ügyvédi Kamara aktív tagja.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-5 flex items-center justify-between">
+                            <a href="#kapcsolat" class="text-amber-600 hover:text-amber-700 font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5">
+                                Időpontfoglalás <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SZAKTERÜLETEK KÁRTYÁK -->
+        <section id="szakteruletek" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-amber-600 font-semibold tracking-widest uppercase text-xs block mb-2">Szolgáltatások</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold font-serif-legal text-slate-900">Szakterületeim</h2>
+                    <div class="w-20 h-1 bg-amber-500 mx-auto mt-4"></div>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base">
+                        Átfogó jogi szolgáltatásokat nyújtok a jog különböző területein a legmagasabb szakmai színvonalon.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Ingatlanjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-building-user"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold font-serif-legal mb-3 text-slate-900 group-hover:text-amber-600 transition-colors">Ingatlanjog</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Adásvételi, ajándékozási és bérleti szerződések szerkesztése, földhivatali ügyintézés, társasházi jogi képviselet.
+                            </p>
+                            <button onclick="openIngatlanjogPage()" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1 bg-transparent border-none cursor-pointer p-0">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Cégjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold font-serif-legal mb-3 text-slate-900 group-hover:text-amber-600 transition-colors">Cégjog és Gazdasági Jog</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Cégalapítás, cégmódosítás, átalakulások lebonyolítása, kereskedelmi szerződések előkészítése és átvilágítása.
+                            </p>
+                            <button onclick="openCegjogPage()" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1 bg-transparent border-none cursor-pointer p-0">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80" alt="Családjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-people-roof"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold font-serif-legal mb-3 text-slate-900 group-hover:text-amber-600 transition-colors">Családjog</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Házassági bontóperek, vagyonmegosztás, gyermektartás és szülői felügyelettel kapcsolatos empátiás jogi képviselet.
+                            </p>
+                            <button onclick="openCsaladjogPage()" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1 bg-transparent border-none cursor-pointer p-0">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/pexels-cottonbro-8371732.jpg" alt="Büntetőjog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-gavel"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold font-serif-legal mb-3 text-slate-900 group-hover:text-amber-600 transition-colors">Büntetőjog</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Hatékony védelem ellátása a nyomozati szakasztól a bírósági eljárás végéig, sértetti és tanú képviselet.
+                            </p>
+                            <button onclick="openBuntetojogPage()" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1 bg-transparent border-none cursor-pointer p-0">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/pexels-sergey-sergeev-2153675005-32845687.jpg" alt="Munkajog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold font-serif-legal mb-3 text-slate-900 group-hover:text-amber-600 transition-colors">Munkajog</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Munkaszerződések felülvizsgálata, felmondások jogossága, munkaügyi peres és peren kívüli eljárások.
+                            </p>
+                            <button onclick="openMunkajogPage()" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1 bg-transparent border-none cursor-pointer p-0">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="relative h-52 overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/pexels-valentin-ivantsov-2154772556-35317578.jpg" alt="Kártérítési Jog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-amber-400 w-10 h-10 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-handshake-angle"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold font-serif-legal mb-3 text-slate-900 group-hover:text-amber-600 transition-colors">Kártérítési Jog</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                                Baleseti és szerződésszegési kártérítési igények érvényesítése biztosítókkal és károkozókkal szemben.
+                            </p>
+                            <button onclick="openKarteritesiJogPage()" class="text-xs font-bold text-amber-600 uppercase tracking-wider hover:underline inline-flex items-center gap-1 bg-transparent border-none cursor-pointer p-0">Konzultáció erről <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VÉLEMÉNYEK SECTION -->
+        <section id="velemenyek" class="py-24 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-amber-600 font-semibold tracking-widest uppercase text-xs block mb-2">Visszajelzések</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold font-serif-legal text-slate-900">Ügyfeleim Véleményei</h2>
+                    <div class="w-20 h-1 bg-amber-500 mx-auto mt-4"></div>
+                    <p class="text-gray-600 mt-4 text-sm sm:text-base">Valós értékelések a Google Maps felületéről</p>
+                </div>
+
+                <div class="bg-slate-900 text-white p-6 rounded-lg shadow-xl max-w-md mx-auto mb-12 flex items-center justify-between border border-amber-500/30">
+                    <div class="flex items-center space-x-4">
+                        <i class="fa-brands fa-google text-4xl text-amber-400"></i>
+                        <div>
+                            <div class="text-2xl font-bold">4.9 / 5.0</div>
+                            <div class="text-amber-400 text-sm flex gap-1 mt-1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/place/%C3%9Cgyv%C3%A9d+Dr.+Soproni+P%C3%A9ter/@47.3563754,19.0692656,14z/data=!4m8!3m7!1s0x4741e979bae344f7:0x4f86333ebe149cb3!8m2!3d47.3545148,19.0786497!3m6!1s0x4741e979bae344f7:0x4f86333ebe149cb3!2m1!1s0x4741e979bae344f7:0x4f86333ebe149cb3!3m1!1s0x4741e979bae344f7:0x4f86333ebe149cb3" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-amber-300 text-xs uppercase tracking-wider font-semibold">
+                        Google Profil <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-200 flex flex-col justify-between hover:border-amber-400 transition-colors">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-amber-600 text-white font-bold rounded-full flex items-center justify-center">K</div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-900">Kovács István</h4>
+                                        <p class="text-xs text-gray-400">Google értékelés</p>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-300"></i>
+                            </div>
+                            <div class="text-amber-400 text-xs mb-3 flex gap-0.5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm italic leading-relaxed">
+                                "Rendkívül gyors és precíz segítséget kaptam ingatlan vásárlás során. Az ügyvéd úr minden részletre kiterjedően elmagyarázta a szerződést. Csak ajánlani tudom."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-200 flex flex-col justify-between hover:border-amber-400 transition-colors">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-slate-800 text-white font-bold rounded-full flex items-center justify-center">N</div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-900">Nagy Katalin</h4>
+                                        <p class="text-xs text-gray-400">Google értékelés</p>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-300"></i>
+                            </div>
+                            <div class="text-amber-400 text-xs mb-3 flex gap-0.5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm italic leading-relaxed">
+                                "Professzionalizmus és megbízhatóság jellemzi. Egy bonyolult cégjogi ügyben képviselt minket sikerrel. Köszönjük a munkáját!"
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-sm border border-gray-200 flex flex-col justify-between hover:border-amber-400 transition-colors">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-emerald-700 text-white font-bold rounded-full flex items-center justify-center">SZ</div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-900">Szabó Zoltán</h4>
+                                        <p class="text-xs text-gray-400">Google értékelés</p>
+                                    </div>
+                                </div>
+                                <i class="fa-brands fa-google text-gray-300"></i>
+                            </div>
+                            <div class="text-amber-400 text-xs mb-3 flex gap-0.5">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm italic leading-relaxed">
+                                "Kiváló szakember. Mindig elérhető volt, és érthetően válaszolt az összes kérdésemre. A megbeszélt határidőket pontosan tartotta."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+     <!-- KAPCSOLAT & E-MAIL ŰRLAP -->
+        <section id="kapcsolat" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div class="lg:col-span-5">
+                        <span class="text-amber-600 font-semibold tracking-widest uppercase text-xs block mb-2">Elérhetőség</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold font-serif-legal text-slate-900 mb-4">Vegye fel a kapcsolatot</h2>
+                        <div class="w-16 h-1 bg-amber-500 mb-8"></div>
+                        
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            Kérjen időpontot személyes vagy online konzultációra. Az első kapcsolatfelvétel során áttekintjük az ügy jellegét és a lehetséges lépéseket.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-slate-900 p-3.5 rounded text-amber-400 mt-1 shadow-md">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Iroda Címe</h4>
+                                    <p class="text-gray-600 text-sm">1054 Budapest, Szabadság tér 7. III. emelet</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-slate-900 p-3.5 rounded text-amber-400 mt-1 shadow-md">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Telefon</h4>
+                                    <p class="text-gray-600 text-sm">+36 1 234 5678 &bull; +36 30 123 4567</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-slate-900 p-3.5 rounded text-amber-400 mt-1 shadow-md">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">E-mail</h4>
+                                    <p class="text-gray-600 text-sm">iroda@drmintapeter.hu</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-slate-900 p-3.5 rounded text-amber-400 mt-1 shadow-md">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Ügyfélfogadás</h4>
+                                    <p class="text-gray-600 text-sm">Hétfő - Csütörtök: 9:00 - 17:00</p>
+                                    <p class="text-gray-600 text-sm">Péntek: 9:00 - 14:00 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-slate-900 p-8 sm:p-10 rounded-lg shadow-2xl border border-slate-800 text-white">
+                        <h3 class="text-2xl font-bold font-serif-legal mb-2 text-white">Kapcsolatfelvétel</h3>
+                        <p class="text-xs text-gray-400 mb-6">Töltse ki az alábbi űrlapot, és 24 órán belül válaszolunk megkeresésére.</p>
+                        
+                        <form id="contactForm" action="https://formspree.io/f/mnpplbpj" method="POST" class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Teljes Név</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded text-white focus:outline-none focus:border-amber-500 text-sm">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">E-mail Cím </label>
+                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded text-white focus:outline-none focus:border-amber-500 text-sm">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Telefonszám</label>
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded text-white focus:outline-none focus:border-amber-500 text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Szakterület</label>
+                                <select id="subject" name="subject" class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded text-white focus:outline-none focus:border-amber-500 text-sm">
+                                    <option>Ingatlanjog</option>
+                                    <option>Cégjog és Gazdasági Jog</option>
+                                    <option>Családjog</option>
+                                    <option>Büntetőjog</option>
+                                    <option>Munkajog</option>
+                                    <option>Kártérítési jog</option>
+                                    <option>Egyéb jogi ügy</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2"> Üzenet</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded text-white focus:outline-none focus:border-amber-500 text-sm"></textarea>
+                            </div>
+
+                            <div class="flex items-start space-x-3 text-xs text-gray-400">
+                                <input type="checkbox" id="privacy" required class="mt-0.5 rounded bg-slate-950 border-slate-700 text-amber-600 focus:ring-amber-500">
+                                <label for="privacy" class="leading-relaxed">Elfogadom az <a href="#" class="underline text-amber-400 hover:text-amber-300">Adatkezelési Tájékoztatót</a> és hozzájárulok a kapcsolatfelvételhez.</label>
+                            </div>
+
+                            <button type="submit" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-semibold py-4 rounded transition-colors shadow-lg uppercase tracking-wider text-xs border border-amber-400/40">
+                                Üzenet Elküldése
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- HASZNOS LINKEK KÜLÖN OLDAL (Alapból rejtett, gombra megjelenő nézet) -->
+    <div id="hasznos-linkek-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-link text-amber-600"></i> Hasznos Linkek
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="hasznos-linkek-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bemutatkozás oldal -->
+    <div id="bemutatkozas-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                Bemutatkozás
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="bemutatkozas-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ingatlanjog oldal -->
+    <div id="ingatlanjog-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-building-user text-amber-600"></i> Ingatlanjog
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="ingatlanjog-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cégjog és Gazdasági jog oldal -->
+    <div id="cegjog-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-briefcase text-amber-600"></i> Cégjog & Gazdasági jog
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="cegjog-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Családjog oldal -->
+    <div id="csaladjog-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-people-roof text-amber-600"></i> Családjog
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="csaladjog-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Büntetőjog oldal -->
+    <div id="buntetojog-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-gavel text-amber-600"></i> Büntetőjog
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="buntetojog-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Munkajog oldal -->
+    <div id="munkajog-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-user-tie text-amber-600"></i> Munkajog
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="munkajog-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kártérítési jog oldal -->
+    <div id="karteritesi-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <!-- Vissza gomb és cím -->
+            <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+                <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                    <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+                </button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-handshake-angle text-amber-600"></i> Kártérítési jog
+                </h2>
+            </div>
+            <!-- Itt jelenik meg a fetchelt tartalom -->
+            <div id="karteritesi-tartalom" class="text-gray-800 leading-relaxed">
+                <div class="flex flex-col items-center justify-center py-20">
+                    <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LÁBLÉC / FOOTER -->
+    <footer class="bg-slate-950 text-gray-400 py-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="text-xs text-gray-400">
+                &copy; 2026 Dr. Minta Péter Ügyvédi Iroda. Minden jog fenntartva.
+            </div>
+            <div class="text-[11px] text-gray-500 max-w-md text-center md:text-right leading-relaxed">
+                Ezt a honlapot a Budapesti Ügyvédi Kamarában bejegyzett ügyvéd tartja fenn az ügyvédekre vonatkozó jogszabályok és belső szabályzatok szerint.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script: Mobil menü, Dropdown és Oldalváltás Fetch-csel -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileDropdownBtn = document.getElementById('mobile-dropdown-btn');
+        const mobileDropdown = document.getElementById('mobile-dropdown');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileDropdownBtn.addEventListener('click', () => {
+            mobileDropdown.classList.toggle('hidden');
+        });
+
+        // Hasznos linkek oldal betöltése és megjelenítése
+        function openHasznosLinkekPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('hasznos-linkek-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Hasznos linkek oldal mutatása
+            mainContent.classList.add('hidden');
+            bemutatkozasPage.classList.add('hidden');
+            ingatlanjogPage.classList.add('hidden');
+            cegjogPage.classList.add('hidden');
+            csaladjogPage.classList.add('hidden');
+            buntetojogPage.classList.add('hidden');
+            munkajogPage.classList.add('hidden');
+            karteritesiPage.classList.add('hidden');
+            hasznosPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/hasznos_linkek.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Hasznos linkeket.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openBemutatkozasPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('bemutatkozas-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Bemutatkozás oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
+            ingatlanjogPage.classList.add('hidden');
+            cegjogPage.classList.add('hidden');
+            csaladjogPage.classList.add('hidden');
+            buntetojogPage.classList.add('hidden');
+            munkajogPage.classList.add('hidden');
+            karteritesiPage.classList.add('hidden');
+            bemutatkozasPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/bemutatkozas.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Bemutatkozás oldalt.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openIngatlanjogPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('ingatlanjog-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Ingatlanjog oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
+            bemutatkozasPage.classList.add('hidden');
+            cegjogPage.classList.add('hidden');
+            csaladjogPage.classList.add('hidden');
+            buntetojogPage.classList.add('hidden');
+            munkajogPage.classList.add('hidden');
+            karteritesiPage.classList.add('hidden');
+            ingatlanjogPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés az Ingatlanjog GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/ingatlanjog.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni az Ingatlanjog oldalt.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openCegjogPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('cegjog-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Cégjog oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
+            bemutatkozasPage.classList.add('hidden');
+            ingatlanjogPage.classList.add('hidden');
+            csaladjogPage.classList.add('hidden');
+            buntetojogPage.classList.add('hidden');
+            munkajogPage.classList.add('hidden');
+            karteritesiPage.classList.add('hidden');
+            cegjogPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a Cégjog GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/cegjog.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Cégjog és Gazdasági jog oldalt.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openCsaladjogPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('csaladjog-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Családjog oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
+            bemutatkozasPage.classList.add('hidden');
+            ingatlanjogPage.classList.add('hidden');
+            cegjogPage.classList.add('hidden');
+            buntetojogPage.classList.add('hidden');
+            munkajogPage.classList.add('hidden');
+            karteritesiPage.classList.add('hidden');
+            csaladjogPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a Családjog GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/csaladjog.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Családjog oldalt.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openBuntetojogPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('buntetojog-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Büntetőjog oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
+            bemutatkozasPage.classList.add('hidden');
+            ingatlanjogPage.classList.add('hidden');
+            cegjogPage.classList.add('hidden');
+            csaladjogPage.classList.add('hidden');
+            munkajogPage.classList.add('hidden');
+            karteritesiPage.classList.add('hidden');
+            buntetojogPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a Büntetőjog GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/buntetojog.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Büntetőjog oldalt.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openMunkajogPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('munkajog-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Munkajog oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
+            bemutatkozasPage.classList.add('hidden');
+            ingatlanjogPage.classList.add('hidden');
+            cegjogPage.classList.add('hidden');
+            csaladjogPage.classList.add('hidden');
+            buntetojogPage.classList.add('hidden');
+            karteritesiPage.classList.add('hidden');
+            munkajogPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a Munkajog GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/munkajog.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Munkajog oldalt.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        function openKarteritesiJogPage() {
+            const mainContent = document.getElementById('main-content');
+            const hasznosPage = document.getElementById('hasznos-linkek-page');
+            const bemutatkozasPage = document.getElementById('bemutatkozas-page');
+            const ingatlanjogPage = document.getElementById('ingatlanjog-page');
+            const cegjogPage = document.getElementById('cegjog-page');
+            const csaladjogPage = document.getElementById('csaladjog-page');
+            const buntetojogPage = document.getElementById('buntetojog-page');
+            const munkajogPage = document.getElementById('munkajog-page');
+            const karteritesiPage = document.getElementById('karteritesi-page');
+            const contentContainer = document.getElementById('karteritesi-tartalom');
+
+            // Főoldal és többi oldal elrejtése, Kártérítési jog oldal mutatása
+            mainContent.classList.add('hidden');
+            hasznosPage.classList.add('hidden');
+            bemutatkozasPage.classList.add('hidden');
+            ingatlanjogPage.classList.add('hidden');
+            cegjogPage.classList.add('hidden');
+            csaladjogPage.classList.add('hidden');
+            buntetojogPage.classList.add('hidden');
+            munkajogPage.classList.add('hidden');
+            karteritesiPage.classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Fetch kérés a Kártérítési jog GitHub raw tartalomért
+            fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/karteretesijog.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Hálózati hiba történt a letöltés során.');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    contentContainer.innerHTML = html;
+                })
+                .catch(error => {
+                    contentContainer.innerHTML = `
+                        <div class="flex flex-col items-center justify-center py-16 text-center">
+                            <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                            <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Kártérítési jog oldalt.</p>
+                            <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // Visszatérés a főoldalra
+        function showMainPage() {
+            document.getElementById('hasznos-linkek-page').classList.add('hidden');
+            document.getElementById('bemutatkozas-page').classList.add('hidden');
+            document.getElementById('ingatlanjog-page').classList.add('hidden');
+            document.getElementById('cegjog-page').classList.add('hidden');
+            document.getElementById('csaladjog-page').classList.add('hidden');
+            document.getElementById('buntetojog-page').classList.add('hidden');
+            document.getElementById('munkajog-page').classList.add('hidden');
+            document.getElementById('karteritesi-page').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            mobileMenu.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
