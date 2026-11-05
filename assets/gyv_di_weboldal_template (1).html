@@ -115,7 +115,7 @@
                 <div id="mobile-dropdown" class="hidden pl-4 py-2 space-y-2 text-xs text-gray-400 border-l border-amber-500/30">
                     <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Ingatlanjog</a>
                     <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Cégjog és Gazdasági jog</a>
-                    <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Családjog</a>
+                    <a href="#szakteruletek" onclick="openCsaladjogPage()" class="block py-1 hover:text-amber-400">Családjog</a>
                     <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Büntetőjog</a>
                     <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Munkajog</a>
                     <a href="#szakteruletek" onclick="showMainPage()" class="block py-1 hover:text-amber-400">Kártérítési jog</a>
@@ -595,6 +595,26 @@
         </div>
     </div>
 
+    <div id="csaladjog-page" class="hidden flex-grow bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+        <!-- Vissza gomb és cím -->
+        <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+            <button onclick="showMainPage()" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all shadow-md">
+                <i class="fa-solid fa-arrow-left"></i> Vissza a főoldalra
+            </button>
+            <h2 class="text-2xl sm:text-3xl font-bold font-serif-legal text-slate-900 flex items-center gap-3">
+                <i class="fa-solid fa-people-roof text-amber-600"></i> Családjog
+            </h2>
+        </div>
+        <!-- Itt jelenik meg a fetchelt tartalom -->
+        <div id="csaladjog-tartalom" class="text-gray-800 leading-relaxed">
+            <div class="flex flex-col items-center justify-center py-20">
+                <p class="text-gray-500 text-sm animate-pulse"><i class="fa-solid fa-spinner fa-spin mr-2"></i> Tartalom betöltése...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- LÁBLÉC / FOOTER -->
     <footer class="bg-slate-950 text-gray-400 py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -691,11 +711,47 @@
                 });
         }
 
+        function openCsaladjogPage() {
+    const mainContent = document.getElementById('main-content');
+    const hasznosPage = document.getElementById('hasznos-linkek-page');
+    const csaladjogPage = document.getElementById('csaladjog-page');
+    const contentContainer = document.getElementById('csaladjog-tartalom');
+
+    // Főoldal és egyéb oldalak elrejtése, Családjog oldal mutatása
+    mainContent.classList.add('hidden');
+    hasznosPage.classList.add('hidden');
+    csaladjogPage.classList.remove('hidden');
+    mobileMenu.classList.add('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Fetch kérés a Családjog GitHub raw tartalomért
+    fetch('https://raw.githubusercontent.com/jszatmari15-web/gaoxmain/main/assets/csaladjog.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Hálózati hiba történt a letöltés során.');
+            }
+            return response.text();
+        })
+        .then(html => {
+            contentContainer.innerHTML = html;
+        })
+        .catch(error => {
+            contentContainer.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-16 text-center">
+                    <i class="fa-solid fa-triangle-exclamation text-red-500 text-4xl mb-3"></i>
+                    <p class="text-red-600 font-semibold text-lg">Nem sikerült betölteni a Családjog oldalt.</p>
+                    <p class="text-gray-500 text-xs mt-1">Kérjük, ellenőrizze az internetkapcsolatot vagy a fájl elérhetőségét.</p>
+                </div>
+            `;
+        });
+}
+
         // Visszatérés a főoldalra
       function showMainPage() {
     document.getElementById('hasznos-linkek-page').classList.add('hidden');
     document.getElementById('bemutatkozas-page').classList.add('hidden');
     document.getElementById('main-content').classList.remove('hidden');
+    document.getElementById ('csaladjog-page').classList.remove('hidden');
     mobileMenu.classList.add('hidden');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
